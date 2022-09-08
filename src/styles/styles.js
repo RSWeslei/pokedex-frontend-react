@@ -40,46 +40,6 @@ export const styles = (props) => StyleSheet.create({
     },
     searchIcon: {
       padding: 10,
-    },
-    pokemonCardName: {
-      textAlign: 'left',
-      color: Colors.white,
-      fontSize: 20,
-    },
-    pokemonCardId: {
-      fontSize: 17,
-      fontWeight: 'bold'
-    },
-    pokemonImage: {
-      width: 170,
-      height: 170,
-      marginTop: -60,
-    },
-    pokemonCardTypeButton: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      backgroundColor: props,
-      borderRadius: 5,
-      height: 35,
-    },
-    pokemonCardTypeText: {
-      color: Colors.white,
-      fontSize: 15,
-      marginLeft: 5,
-      fontWeight: 'bold',
-      width: 80,
-    },
-    pokemonCardTypeIcon: {
-      width: 20,
-      height: 20,
-      marginLeft: 5,
-    },
-    pokemonCard: {
-      backgroundColor: '#8bbe8a',
-      borderRadius: 10,
-      padding: 10,
-      margin: 10,
-      marginBottom: 40,
-    },
-  });
+    }
+});
   

@@ -1,25 +1,42 @@
-
 export default getTypeIcon = (id) => {
-    const typesIds = {
-        1: 'Normal.png',
-        2: 'Fighting.png',
-        3: 'Flying.png',
-        4: 'Poison.png',
-        5: 'Ground.png',
-        6: 'Rock.png',
-        7: 'Bug.png',
-        8: 'Ghost.png',
-        9: 'Steel.png',
-        10: 'Fire.png',
-        11: 'Water.png',
-        12: 'Grass.png',
-        13: 'Electric.png',
-        14: 'Psychic.png',
-        15: 'Ice.png',
-        16: 'Dragon.png',
-        17: 'Dark.png',
-        18: 'Fairy.png'
-    }
-    console.log(typesIds[id]);
-    return typesIds[id];
+  switch (id) {
+    case 1:
+      return require('./Normal.png');
+    case 2:
+      return require('./Fighting.png');
+    case 3:
+      return require('./Flying.png');
+    case 4:
+      return require('./Poison.png');
+    case 5:
+      return require('./Ground.png');
+    case 6:
+      return require('./Rock.png');
+    case 7:
+      return require('./Bug.png');
+    case 8:
+      return require('./Ghost.png');
+    case 9:
+      return require('./Steel.png');
+    case 10:
+      return require('./Fire.png');
+    case 11:
+      return require('./Water.png');
+    case 12:
+      return require('./Grass.png');
+    case 13:
+      return require('./Electric.png');
+    case 14:
+      return require('./Psychic.png');
+    case 15:
+      return require('./Ice.png');
+    case 16:
+      return require('./Dragon.png');
+    case 17:
+      return require('./Dark.png');
+    case 18:
+      return require('./Fairy.png');
+    default:
+      break;
+  }
 }
