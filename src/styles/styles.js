@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
@@ -52,15 +51,28 @@ export const styles = (props) => StyleSheet.create({
       fontWeight: 'bold'
     },
     pokemonImage: {
-      width: 200,
-      height: 200,
+      width: 170,
+      height: 170,
       marginTop: -60,
     },
     pokemonCardTypeButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
       backgroundColor: props,
       borderRadius: 5,
-      marginRight: 5,
-      marginBottom: 5,
+      height: 35,
+    },
+    pokemonCardTypeText: {
+      color: Colors.white,
+      fontSize: 15,
+      marginLeft: 5,
+      fontWeight: 'bold',
+      width: 80,
+    },
+    pokemonCardTypeIcon: {
+      width: 20,
+      height: 20,
+      marginLeft: 5,
     },
     pokemonCard: {
       backgroundColor: '#8bbe8a',

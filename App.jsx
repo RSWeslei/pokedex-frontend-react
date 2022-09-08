@@ -10,16 +10,18 @@ import {React, useState, useEffect} from 'react';
 // import api from './src/plugins/axios.js';
 import axios from 'axios';
 import {Node} from 'react';
+import Svg from 'react-native-svg';
+import getTypeIcon from './src/assets/type-icons-png/getTypeIcon.js';
 
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
   Text,
   useColorScheme,
   Image,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import { TextCard, Card, Button, Icon } from 'react-native-elements';
@@ -70,6 +72,7 @@ const SearchBar = () => {
     </View>
   );
 }
+const typeIcons = { }
 
 const PokemonCard = (props) => {
   return (
@@ -83,7 +86,20 @@ const PokemonCard = (props) => {
             <Card.Title style={styles().pokemonCardName}>{props.pokemon.name}</Card.Title>
             <View style={{flexDirection:'row'}}>
               {props.pokemon.types.map(type => (
-                <Button key={type.id} title={type.name} buttonStyle={styles(type.color).pokemonCardTypeButton} titleStyle={{color:'white'}}/>
+                <TouchableOpacity 
+                    key={type.id} 
+                    title={type.name} 
+                    style={styles(type.color).pokemonCardTypeButton} 
+                    titleStyle={{color:'white'}}
+                  >
+                    <View style={{flexDirection: 'row'}}>
+                      <Image
+                        style={styles().pokemonCardTypeIcon}
+                        source={require(`./src/assets/type-icons-png/Normal.png`)}
+                      ></Image>
+                      <Text style={styles().pokemonCardTypeText}>{type.name}</Text>
+                    </View>
+                </TouchableOpacity>
               ))}
             </View>
           </View>
@@ -115,7 +131,6 @@ function App () {
   if (isLoading) {
     return <Text className="App">Loading...</Text>;
   }
-
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
