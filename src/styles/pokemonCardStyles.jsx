@@ -1,20 +1,21 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import cardColors from './cardBackgroundColor'
 
 export const pokemonCardStyles = (props) => StyleSheet.create({
     pokemonCardName: {
         textAlign: 'left',
         color: Colors.white,
-        fontSize: 20,
+        fontSize: 30
     },
     pokemonCardId: {
-        fontSize: 17,
-        fontWeight: 'bold'
+        fontSize: 16,
+        fontWeight: 'bold',
     },
     pokemonImage: {
         width: 170,
         height: 170,
-        marginTop: -60,
+        marginTop: -40,
     },
     pokemonCardTypeButton: {
         flexDirection: 'row',
@@ -30,7 +31,7 @@ export const pokemonCardStyles = (props) => StyleSheet.create({
         fontSize: 15,
         marginLeft: 5,
         marginEnd: 5,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     pokemonCardTypeIcon: {
         width: 20,
@@ -39,10 +40,20 @@ export const pokemonCardStyles = (props) => StyleSheet.create({
         marginEnd: 1,
     },
     pokemonCard: {
-        backgroundColor: '#8bbe8a',
+        backgroundColor: cardColors[props],
         borderRadius: 10,
         padding: 10,
         margin: 10,
         marginBottom: 40,
+        height: 150,
     },
+    pokeballBackground: {
+        position: 'absolute',
+        marginVertical: -10,
+        marginLeft: 210,
+    },
+    dotsBackground: {
+        position: 'absolute',
+        marginStart: 70
+    }
 })

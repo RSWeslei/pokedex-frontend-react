@@ -9,6 +9,7 @@
 import {React, useState, useEffect} from 'react';
 // import api from './src/plugins/axios.js';
 import axios from 'axios';
+import { SvgUri } from 'react-native-svg';
 import {Node} from 'react';;
 
 import {
@@ -71,37 +72,56 @@ const SearchBar = () => {
   );
 }
 import typesSvgs from './src/assets/type-icons/typesSvgs.js';
+import PokeballCard from './src/assets/svg-icons/pokeball.svg'
+import DotsCard from './src/assets/svg-icons/pattern.svg'
+
+const getCardColor = (props) => {
+  return props.pokemon.types.length == 2
+    ? props.pokemon.types[1].name
+    : props.pokemon.types[0].name
+}
 const PokemonCard = (props) => {
   return (
     <View>
-      <Card containerStyle={pokemonCardStyles().pokemonCard}>
-        <View style={{flexDirection:'row'}}>
-          <View>
-            <Text style={pokemonCardStyles().pokemonCardId}>{props.pokemon.id.toString().length == 1 ? '#00' 
-              : props.pokemon.id.toString().length == 2 
-              ? '#0' : '#'}{props.pokemon.id}</Text>
-            <Card.Title style={pokemonCardStyles().pokemonCardName}>{props.pokemon.name}</Card.Title>
-            <View style={{flexDirection:"row", alignContent: 'space-between'}}>
-              {props.pokemon.types.map(type => (
-                <TouchableOpacity 
-                    key={type.id}
-                    title={type.name} 
-                    style={pokemonCardStyles(type.color).pokemonCardTypeButton} 
-                    titleStyle={{color:'white'}}
-                  >
-                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                      {typesSvgs(type.id, pokemonCardStyles().pokemonCardTypeIcon, width=20, height=20)}
-                      <Text style={pokemonCardStyles().pokemonCardTypeText}>{type.name}</Text>
-                    </View>
-                </TouchableOpacity>
-              ))}
+      <TouchableOpacity>
+        <Card containerStyle={pokemonCardStyles(getCardColor(props)).pokemonCard}>
+          <DotsCard width={110} height={40} style={pokemonCardStyles().dotsBackground}/>
+          <PokeballCard width={150} height={150} style={pokemonCardStyles().pokeballBackground} PokeballCard/>
+          <View style={{flexDirection:'row'}}>
+            <View style={{marginStart: 10}}>
+              <Text style={pokemonCardStyles().pokemonCardId}>{props.pokemon.id.toString().length == 1 ? '#00' 
+                : props.pokemon.id.toString().length == 2 
+                ? '#0' : '#'}{props.pokemon.id}
+              </Text>
+              <Card.Title style={pokemonCardStyles().pokemonCardName}>{props.pokemon.name}</Card.Title>
+              <View style={{flexDirection:"row", alignContent: 'space-between'}}>
+                {props.pokemon.types.map(type => (
+                  <TouchableOpacity 
+                      key={type.id}
+                      title={type.name} 
+                      style={pokemonCardStyles(type.color).pokemonCardTypeButton} 
+                      titleStyle={{color:'white'}}
+                    >
+                      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                        {typesSvgs(type.id, pokemonCardStyles().pokemonCardTypeIcon, width=20, height=20)}
+                        <Text style={pokemonCardStyles().pokemonCardTypeText}>{type.name}</Text>
+                      </View>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </View>
+            <View style={{marginLeft: 'auto'}}>
+              <SvgUri
+                style={pokemonCardStyles().pokemonImage}
+                width="150"
+                height="150"
+                uri={props.pokemon.images.svgs.front_default}
+              ></SvgUri>
+              {/* <Image source={{uri: props.pokemon.images.artwork}} style={styles().pokemonImage} /> */}
             </View>
           </View>
-          <View style={{marginLeft: 'auto'}}>
-            <Image source={{uri: props.pokemon.images.artwork}} style={pokemonCardStyles().pokemonImage} />
-          </View>
-        </View>
-      </Card>
+        </Card>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -116,7 +136,7 @@ function App () {
   const [pokemons, setPokemons] = useState();
 
   useEffect(() => {
-    axios.get("http://18.230.58.83:3000/pokemons").then(response => {
+    axios.get("http://18.231.114.18:3000/pokemons").then(response => {
       setPokemons(response.data.data);
       setLoading(false);
     });
@@ -132,6 +152,7 @@ function App () {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
+        bounces={true}
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Title/>
@@ -141,7 +162,9 @@ function App () {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           {pokemons.map(pokemon=>{
-            return <PokemonCard key={pokemon.id} pokemon={pokemon}/>
+            return <View key={pokemon.id} style={{marginBottom: -15}}>
+              <PokemonCard pokemon={pokemon}/>
+            </View> 
           })}
         </View>
       </ScrollView>
@@ -149,7 +172,7 @@ function App () {
   );
 };
 
-import { styles } from './src/styles/styles.js';
-import { pokemonCardStyles } from './src/styles/pokemonCardStyles.js';
+import { styles } from './src/styles/styles';
+import { pokemonCardStyles } from './src/styles/pokemonCardStyles';
 
 export default App;

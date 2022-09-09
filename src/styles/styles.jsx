@@ -36,7 +36,7 @@ export const styles = (props) => StyleSheet.create({
       flex: 1,
       marginLeft: 30,
       marginRight: 30,
-      paddingTop: 30,
+      marginBottom: 30
     },
     searchIcon: {
       padding: 10,
