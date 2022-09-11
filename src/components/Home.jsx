@@ -80,40 +80,46 @@ const PokemonCard = (props) => {
           <DotsCard width={110} height={40} style={pokemonCardStyles().dotsBackground} />
           <PokeballCard width={150} height={150} style={pokemonCardStyles().pokeballBackground} PokeballCard />
           <View style={{ flexDirection: 'row' }}>
-            <View style={{ marginStart: 10 }}>
-              <Text style={pokemonCardStyles().pokemonCardId}>{props.pokemon.id.toString().length == 1 ? '#00'
-                : props.pokemon.id.toString().length == 2
-                  ? '#0' : '#'}{props.pokemon.id}
-              </Text>
-              <Card.Title style={pokemonCardStyles().pokemonCardName}>{props.pokemon.name}</Card.Title>
-              <View style={{ flexDirection: "row", alignContent: 'space-between' }}>
-                {props.pokemon.types.map(type => (
-                  <TouchableOpacity
-                    key={type.id}
-                    title={type.name}
-                    style={pokemonCardStyles(type.color).pokemonCardTypeButton}
-                    titleStyle={{ color: 'white' }}
-                  >
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                      {typesSvgs(type.id, pokemonCardStyles().pokemonCardTypeIcon, width = 20, height = 20)}
-                      <Text style={pokemonCardStyles().pokemonCardTypeText}>{type.name}</Text>
-                    </View>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            </View>
+            <PokemonInfo pokemon={props.pokemon}/>
             <View style={{ marginLeft: 'auto' }}>
-              <SvgUri
+              {/* <SvgUri
                 style={pokemonCardStyles().pokemonImage}
                 width="150"
                 height="150"
                 uri={props.pokemon.images.svgs.front_default}
-              ></SvgUri>
-              {/* <Image source={{uri: props.pokemon.images.artwork}} style={styles().pokemonImage} /> */}
+              ></SvgUri> */}
+              <Image source={{ uri: props.pokemon.images.artwork }} style={styles().pokemonImage} />
             </View>
           </View>
         </Card>
       </TouchableOpacity>
+    </View>
+  );
+}
+
+const PokemonInfo = (props) => {
+  return (
+    <View style={{ marginStart: 10 }}>
+      <Text style={pokemonCardStyles().pokemonCardId}>{props.pokemon.id.toString().length == 1 ? '#00'
+        : props.pokemon.id.toString().length == 2
+          ? '#0' : '#'}{props.pokemon.id}
+      </Text>
+      <Card.Title style={pokemonCardStyles().pokemonCardName}>{props.pokemon.name}</Card.Title>
+      <View style={{ flexDirection: "row", alignContent: 'space-between' }}>
+        {props.pokemon.types.map(type => (
+          <TouchableOpacity
+            key={type.id}
+            title={type.name}
+            style={pokemonCardStyles(type.color).pokemonCardTypeButton}
+            titleStyle={{ color: 'white' }}
+          >
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              {typesSvgs(type.id, pokemonCardStyles().pokemonCardTypeIcon, width = 20, height = 20)}
+              <Text style={pokemonCardStyles().pokemonCardTypeText}>{type.name}</Text>
+            </View>
+          </TouchableOpacity>
+        ))}
+      </View>
     </View>
   );
 }
@@ -128,7 +134,7 @@ const HomeScreen = ({ navigation }) => {
   const [pokemons, setPokemons] = useState();
 
   useEffect(() => {
-    axios.get("http://54.233.231.15:3000/pokemons").then(response => {
+    axios.get("http://18.228.172.217:3000/pokemons").then(response => {
       setPokemons(response.data.data);
       setLoading(false);
     });
@@ -168,3 +174,4 @@ import { styles } from '../styles/styles';
 import { pokemonCardStyles } from '../styles/pokemonCardStyles';
 
 export default HomeScreen;
+export { PokemonInfo };

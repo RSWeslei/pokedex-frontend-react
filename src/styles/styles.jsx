@@ -40,6 +40,11 @@ export const styles = (props) => StyleSheet.create({
     },
     searchIcon: {
       padding: 10,
-    }
+    },
+    pokemonImage: {
+      width: 170,
+      height: 170,
+      marginTop: -40,
+    },
 });
   
