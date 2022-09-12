@@ -73,14 +73,16 @@ const PokemonCard = (props) => {
     <View>
       <TouchableOpacity onPress={
         () => {
-          props.navigation.navigate('PokemonViewer', { pokemon: props.pokemon })
+          props.navigation.navigate('PokemonViewer', {
+            pokemon: props.pokemon
+          })
         }
       }>
         <Card containerStyle={pokemonCardStyles(getCardColor(props)).pokemonCard}>
           <DotsCard width={110} height={40} style={pokemonCardStyles().dotsBackground} />
           <PokeballCard width={150} height={150} style={pokemonCardStyles().pokeballBackground} PokeballCard />
           <View style={{ flexDirection: 'row' }}>
-            <PokemonInfo pokemon={props.pokemon}/>
+            <PokemonInfo pokemon={props.pokemon} />
             <View style={{ marginLeft: 'auto' }}>
               {/* <SvgUri
                 style={pokemonCardStyles().pokemonImage}
@@ -134,7 +136,7 @@ const HomeScreen = ({ navigation }) => {
   const [pokemons, setPokemons] = useState();
 
   useEffect(() => {
-    axios.get("http://18.228.172.217:3000/pokemons").then(response => {
+    axios.get("http://18.230.22.85:3000/pokemons").then(response => {
       setPokemons(response.data.data);
       setLoading(false);
     });
@@ -161,7 +163,10 @@ const HomeScreen = ({ navigation }) => {
           }}>
           {pokemons.map(pokemon => {
             return <View key={pokemon.id} style={{ marginBottom: -15 }}>
-              <PokemonCard pokemon={pokemon} navigation={navigation} />
+              <PokemonCard
+                pokemon={pokemon}
+                navigation={navigation}
+              />
             </View>
           })}
         </View>

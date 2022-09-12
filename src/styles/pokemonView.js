@@ -8,18 +8,22 @@ export const pokemonView = (props) => StyleSheet.create({
         backgroundColor: cardColors[props],
     },
     pokemonNameBackgroundContainer: {
-        marginTop: '10%', 
+        marginTop: '6%', 
         position: 'absolute',
+        alignContent: 'center',
+        justifyContent: 'center',
+        width: '100%',
     },
     pokemonNameBackground:{
         alignSelf: 'center',
         fontSize: 70,
         color: 'white',
+        justifyContent: 'center',
         fontFamily: 'Gobold_Hollow',
     },
     viewCard: {
         backgroundColor: '#ffff',
-        height: '58%',
+        height: '60%',
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
@@ -41,7 +45,8 @@ export const pokemonView = (props) => StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '80%',
-        marginBottom: '12%',
+        marginLeft: '10%',
+        marginTop: '8%',
     },
     menuTitle: {
         color: 'white',
@@ -50,8 +55,9 @@ export const pokemonView = (props) => StyleSheet.create({
     },
     titles: {
         fontSize: 20,
-        fontWeight: 'normal',
+        fontWeight: 'bold',
         color: cardColors[props],
+        marginTop: 10,
     },
     pokemonView: {
         alignItems: 'center',
