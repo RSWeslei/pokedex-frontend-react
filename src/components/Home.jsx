@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 // import api from '../plugins/axios.js';
-import axios from 'axios';
+import api from '../plugins/axios.js';
 import { SvgUri } from 'react-native-svg';
 import { Node } from 'react';
 
@@ -136,8 +136,8 @@ const HomeScreen = ({ navigation }) => {
   const [pokemons, setPokemons] = useState();
 
   useEffect(() => {
-    axios.get("http://18.230.22.85:3000/pokemons").then(response => {
-      setPokemons(response.data.data);
+    api.get("/pokemons").then(response => {
+      setPokemons(response.data);
       setLoading(false);
     });
   }, []);

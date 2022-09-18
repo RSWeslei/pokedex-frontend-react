@@ -1,7 +1,10 @@
-// import axios from 'axios'
+import axios from 'axios'
 
-// const api = axios.create({
-//     baseURL: 'http://20.226.100.14:3000/'
-// });
+const api = axios.create({
+    baseURL: 'http://18.230.25.188'
+});
+api.interceptors.response.use(response => {
+    return response.data;
+});
 
-// export default api;
+export default api;

@@ -9,7 +9,7 @@ import {
 import kgToLbs from '../utils/converter';
 import { PokemonInfo } from './Home';
 import { React, useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../plugins/axios.js';
 import typesSvgs from '../assets/type-icons/typesSvgs.js';
 import typesColors from '../styles/typesColors';
 
@@ -18,9 +18,7 @@ const About = (props) => {
     <View style={pokemonView().aboutCard}>
       <Text style={pokemonView(getBackgroundColor(props)).titles}>Sobre</Text>
       <Text lineBreakMode='true' style={pokemonView().description}>
-        Bulbasaur pode ser visto cochilando sob a luz do sol.
-        Ha uma semente em suas costas.
-        Ao absorver os raios do sol, a semente cresce progressivamente.
+        {props.pokemon.description}
       </Text>
       <Text style={pokemonView(getBackgroundColor(props)).titles}>Pokedex Dados</Text>
       <View style={pokemonView().pokemonData}>
@@ -30,11 +28,11 @@ const About = (props) => {
         </View>
         <View style={pokemonView().pokemonDataTitleParent}>
           <Text style={pokemonView().pokemonDataTitle}>Altura:</Text>
-          <Text style={pokemonView().pokemonDataText}>{`${props.pokemon.height / 10}m`}</Text>
+          <Text style={pokemonView().pokemonDataText}>{`${Number(props.pokemon.height).toFixed(1)}m`}</Text>
         </View>
         <View style={pokemonView().pokemonDataTitleParent}>
           <Text style={pokemonView().pokemonDataTitle}>Peso:</Text>
-          <Text style={pokemonView().pokemonDataText}>{`${props.pokemon.weight / 10}kg (${kgToLbs(props.pokemon.weight)} lbs)`}</Text>
+          <Text style={pokemonView().pokemonDataText}>{`${Number(props.pokemon.weight).toFixed(1) }kg (${kgToLbs(props.pokemon.weight)} lbs)`}</Text>
         </View>
         <View style={pokemonView().pokemonDataTitleParent}>
           <Text style={pokemonView().pokemonDataTitle}>Abilidades:</Text>
@@ -229,9 +227,10 @@ function PokemonViewer({ route, navigation }) {
   });
 
   useEffect(() => {
-    axios.post("http://18.230.22.85:3000/type-damages", { types: types }).then(response => {
-      setTypesDefense(response.data.data);
+    api.post("/type-damages", { types: types }).then(response => {
+      setTypesDefense(response.data);
       setLoading(false);
+      console.log('response.data');
     });
   }, []);
 
