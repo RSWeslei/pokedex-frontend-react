@@ -82,10 +82,9 @@ export const pokemonView = (props) => StyleSheet.create({
     },
     description: {
         fontSize: 15,
-        maxWidth: '90%',
         marginTop: 15,
-        marginBottom: 20,
-        marginStart: 10,
+        marginBottom: 10,
+        textAlignVertical: 'center',
     },
     pokemonData: {
         flex: 1,
@@ -96,8 +95,9 @@ export const pokemonView = (props) => StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 10,
-        flexDirection: 'row',
         width: '30%',
+        flexDirection: 'row',
+        marginRight: -60,
     },
     pokemonDataText: {
         flex: 1,
@@ -107,6 +107,7 @@ export const pokemonView = (props) => StyleSheet.create({
     },
     pokemonDataTitleParent: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        width: '80%',
     }
 })

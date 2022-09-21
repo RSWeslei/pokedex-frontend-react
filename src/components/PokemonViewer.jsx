@@ -16,26 +16,22 @@ import typesColors from '../styles/typesColors';
 const About = (props) => {
   return (
     <View style={pokemonView().aboutCard}>
-      <Text style={pokemonView(getBackgroundColor(props)).titles}>Sobre</Text>
+      <Text style={pokemonView(getBackgroundColor(props)).titles}>About</Text>
       <Text lineBreakMode='true' style={pokemonView().description}>
         {props.pokemon.description}
       </Text>
-      <Text style={pokemonView(getBackgroundColor(props)).titles}>Pokedex Dados</Text>
+      <Text style={pokemonView(getBackgroundColor(props)).titles}>Pokedex Data</Text>
       <View style={pokemonView().pokemonData}>
         <View style={pokemonView().pokemonDataTitleParent}>
-          <Text style={pokemonView().pokemonDataTitle}>Especie:</Text>
-          <Text style={pokemonView().pokemonDataText}>100</Text>
-        </View>
-        <View style={pokemonView().pokemonDataTitleParent}>
-          <Text style={pokemonView().pokemonDataTitle}>Altura:</Text>
+          <Text style={pokemonView().pokemonDataTitle}>Height:</Text>
           <Text style={pokemonView().pokemonDataText}>{`${Number(props.pokemon.height).toFixed(1)}m`}</Text>
         </View>
         <View style={pokemonView().pokemonDataTitleParent}>
-          <Text style={pokemonView().pokemonDataTitle}>Peso:</Text>
+          <Text style={pokemonView().pokemonDataTitle}>Weight:</Text>
           <Text style={pokemonView().pokemonDataText}>{`${Number(props.pokemon.weight).toFixed(1) }kg (${kgToLbs(props.pokemon.weight)} lbs)`}</Text>
         </View>
         <View style={pokemonView().pokemonDataTitleParent}>
-          <Text style={pokemonView().pokemonDataTitle}>Abilidades:</Text>
+          <Text style={pokemonView().pokemonDataTitle}>Abilities:</Text>
           <Text style={pokemonView().pokemonDataText}>
             {props.pokemon?.abilities.map((ability, index) => {
               return (
@@ -43,7 +39,7 @@ const About = (props) => {
                   key={ability.id}
                   style={pokemonView().pokemonDataText}
                 >
-                  {`${index + 1} - ${ability.name}`}
+                  {`${index + 1}. ${ability.isHidden ? ability.name + ' (hidden ability)' : ability.name}\n`}
                 </Text>
               );
             })}
@@ -64,37 +60,37 @@ const BasicStats = (props) => {
         <BasicStat
           name={'HP'}
           stat={props.pokemon.stat.hp}
-          maxValue={294}
+          maxValue={props.pokemon.stat.minHp}
           type={getBackgroundColor(props)}
         />
         <BasicStat
           name={'Ataque'}
           stat={props.pokemon.stat.attack}
-          maxValue={216}
+          maxValue={props.pokemon.stat.minAttack}
           type={getBackgroundColor(props)}
         />
         <BasicStat
           name={'Defesa'}
           stat={props.pokemon.stat.defense}
-          maxValue={216}
+          maxValue={props.pokemon.stat.minDefense}
           type={getBackgroundColor(props)}
         />
         <BasicStat
           name={'Sp. Ataque'}
           stat={props.pokemon.stat.specialAttack}
-          maxValue={251}
+          maxValue={props.pokemon.stat.minSpecialAttack}
           type={getBackgroundColor(props)}
         />
         <BasicStat
           name={'Sp. Defesa'}
           stat={props.pokemon.stat.specialDefense}
-          maxValue={251}
+          maxValue={props.pokemon.stat.minSpecialDefense}
           type={getBackgroundColor(props)}
         />
         <BasicStat
           name={'Velocidade'}
           stat={props.pokemon.stat.speed}
-          maxValue={207}
+          maxValue={props.pokemon.stat.minSpeed}
           type={getBackgroundColor(props)}
         />
       </View>
