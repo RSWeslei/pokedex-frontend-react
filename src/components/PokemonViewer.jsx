@@ -5,6 +5,7 @@ import {
   View,
   Animated,
   StyleSheet,
+  Button
 } from 'react-native';
 import kgToLbs from '../utils/converter';
 import { PokemonInfo } from './Home';
@@ -213,12 +214,12 @@ import Pokeball from '../assets/svg-icons/pokeballFull.svg'
 
 function PokemonViewer({ route, navigation }) {
   let [selectMenu, setSelectMenu] = useState(1);
-
+  const pokemon = route.params.pokemon
   const [isLoading, setLoading] = useState(true);
   const [typesDefense, setTypesDefense] = useState();
 
   let types = []
-  route.params.pokemon.types.forEach(type => {
+  pokemon.types.forEach(type => {
     types.push(type.id)
   });
 
@@ -226,12 +227,15 @@ function PokemonViewer({ route, navigation }) {
     api.post("/type-damages", { types: types }).then(response => {
       setTypesDefense(response.data);
       setLoading(false);
-      console.log('response.data');
     });
   }, []);
 
   if (isLoading) {
-    return <Text className="App">Loading...</Text>;
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
+        <Text>Loading...</Text>
+      </View>
+    )
   }
 
   return (
@@ -242,22 +246,19 @@ function PokemonViewer({ route, navigation }) {
         style={pokemonView().backButton}
         onPress={() => navigation.goBack()}
       >
-        <View style={pokemonView().backButton}>
-          <Text style={pokemonView().backButtonText}>Voltar</Text>
-        </View>
       </TouchableOpacity>
       <View style={pokemonView().pokemonNameBackgroundContainer}>
         <GradientText
           style={pokemonView().pokemonNameBackground}
         >
-          {route.params.pokemon.name.toUpperCase()}
+          {pokemon.name.toUpperCase()}
         </GradientText>
       </View>
       <DotsPattern width={60} height={60} style={pokemonView().dotsPokemonBackground} />
       <View style={pokemonView().pokemonView}>
         <CirclePokemon width={150} height={150} style={pokemonView().circlePokemonBackground} />
-        <Image source={{ uri: route.params.pokemon.images.artwork }} style={pokemonView().pokemonImage} />
-        <PokemonInfo pokemon={route.params.pokemon}></PokemonInfo>
+        <Image source={{ uri: pokemon.images.artwork }} style={pokemonView().pokemonImage} />
+        <PokemonInfo pokemon={pokemon}></PokemonInfo>
       </View>
       <View style={pokemonView().menuContainer}>
         <TouchableOpacity
@@ -283,9 +284,9 @@ function PokemonViewer({ route, navigation }) {
         </TouchableOpacity>
       </View>
       <View style={pokemonView().viewCard}>
-        {selectMenu == 1 ? <About pokemon={route.params.pokemon} /> : null}
-        {selectMenu == 2 ? <BasicStats typesDefense={typesDefense} pokemon={route.params.pokemon} /> : null}
-        {selectMenu == 3 ? <Evolutions pokemon={route.params.pokemon} /> : null}
+        {selectMenu == 1 ? <About pokemon={pokemon} /> : null}
+        {selectMenu == 2 ? <BasicStats typesDefense={typesDefense} pokemon={pokemon} /> : null}
+        {selectMenu == 3 ? <Evolutions pokemon={pokemon} /> : null}
       </View>
     </View>
   );

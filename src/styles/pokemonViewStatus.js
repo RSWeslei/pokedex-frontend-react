@@ -7,6 +7,7 @@ export const statusStyles = (props, value, maxValue) => StyleSheet.create({
         alignSelf: 'flex-start',
         alignContent: 'flex-start',
         marginLeft: 30,
+        marginTop: 40,
     },
     basicStatus: {
         flexDirection: 'row',

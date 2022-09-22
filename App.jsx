@@ -1,15 +1,20 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
-*/
-
 import React, { useEffect } from "react";
 import { NavigationContainer } from '@react-navigation/native';
-import StackNavigator from './src/components/StackNavigator.js';
-import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from "./src/components/Home";
+import PokemonViewer from "./src/components/PokemonViewer";
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  useColorScheme,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  Button,
+  View,
+} from 'react-native';
 
 function App() {
   // useEffect(() => {
@@ -33,9 +38,13 @@ function App() {
   //   return () => backHandler.remove();
   // }, []);
 
+  const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="PokemonViewer" component={PokemonViewer}/>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };

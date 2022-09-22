@@ -71,8 +71,7 @@ const getCardColor = (props) => {
 const PokemonCard = (props) => {
   return (
     <View>
-      <TouchableOpacity onPress={
-        () => {
+      <TouchableOpacity onPress={() => {
           props.navigation.navigate('PokemonViewer', {
             pokemon: props.pokemon
           })
@@ -126,7 +125,7 @@ const PokemonInfo = (props) => {
   );
 }
 
-const HomeScreen = ({ navigation }) => {
+function HomeScreen ({ navigation }) {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -143,7 +142,11 @@ const HomeScreen = ({ navigation }) => {
   }, []);
 
   if (isLoading) {
-    return <Text className="App">Loading...</Text>;
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
+        <Text>Loading...</Text>
+      </View>
+    )
   }
   return (
     <SafeAreaView style={backgroundStyle}>
