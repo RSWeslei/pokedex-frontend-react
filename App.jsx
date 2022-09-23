@@ -41,9 +41,9 @@ function App() {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name="Home" component={HomeScreen}/>
-        <Stack.Screen name="PokemonViewer" component={PokemonViewer}/>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="PokemonViewer" component={PokemonViewer} />
       </Stack.Navigator>
     </NavigationContainer>
   );
