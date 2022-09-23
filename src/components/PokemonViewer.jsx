@@ -56,7 +56,7 @@ const BasicStats = (props) => {
   let types2 = [10, 11, 12, 13, 14, 15, 16, 17, 18];
   return (
     <View style={statusStyles().statusCard}>
-      <Text style={pokemonView(getBackgroundColor(props)).titles}>Status Basicos</Text>
+      <Text style={pokemonView(getBackgroundColor(props)).titles}>Basic Stats</Text>
       <View>
         <BasicStat
           name={'HP'}
@@ -65,38 +65,38 @@ const BasicStats = (props) => {
           type={getBackgroundColor(props)}
         />
         <BasicStat
-          name={'Ataque'}
+          name={'Attack'}
           stat={props.pokemon.stat.attack}
           maxValue={props.pokemon.stat.minAttack}
           type={getBackgroundColor(props)}
         />
         <BasicStat
-          name={'Defesa'}
+          name={'Defense'}
           stat={props.pokemon.stat.defense}
           maxValue={props.pokemon.stat.minDefense}
           type={getBackgroundColor(props)}
         />
         <BasicStat
-          name={'Sp. Ataque'}
+          name={'Sp. Attack'}
           stat={props.pokemon.stat.specialAttack}
           maxValue={props.pokemon.stat.minSpecialAttack}
           type={getBackgroundColor(props)}
         />
         <BasicStat
-          name={'Sp. Defesa'}
+          name={'Sp. Defense'}
           stat={props.pokemon.stat.specialDefense}
           maxValue={props.pokemon.stat.minSpecialDefense}
           type={getBackgroundColor(props)}
         />
         <BasicStat
-          name={'Velocidade'}
+          name={'Speed'}
           stat={props.pokemon.stat.speed}
           maxValue={props.pokemon.stat.minSpeed}
           type={getBackgroundColor(props)}
         />
       </View>
-      <Text style={pokemonView(getBackgroundColor(props)).titles}>Tipos de Defesas</Text>
-      <Text style={statusStyles(getBackgroundColor(props)).statusSubtitle}>{`A eficacia de cada tipo no ${props.pokemon.name}`}</Text>
+      <Text style={pokemonView(getBackgroundColor(props)).titles}>Types of defenses</Text>
+      <Text style={statusStyles(getBackgroundColor(props)).statusSubtitle}>{`The effectiveness of each type on the pokemon ${props.pokemon.name}`}</Text>
       <View style={[statusStyles().defensesTypesContainer]}>
         {types2.map(type => (
           <View key={type}>
@@ -130,7 +130,7 @@ import PokeballFull from '../assets/svg-icons/pokeballFullColor.svg'
 const Evolutions = (props) => {
   return (
     <View style={evolutionStyles().evolutionsCard}>
-      <Text style={pokemonView(getBackgroundColor(props)).titles}>Evolucoes</Text>
+      <Text style={pokemonView(getBackgroundColor(props)).titles}>Evolutions</Text>
       <View style={evolutionStyles().evolutionToContainer}>
         <EvolutionPokemon pokemon={props.pokemon}/>
         <Arrow width={30} height={30} style={evolutionStyles().arrow}></Arrow>
@@ -266,21 +266,21 @@ function PokemonViewer({ route, navigation }) {
           hitSlop={{ top: 15, bottom: 15, left: 30, right: 30 }}
         >
           {selectMenu == 1 ? <Pokeball width={90} height={90} style={pokemonView().pokeballIcon} /> : null}
-          <Text style={pokemonView(selectMenu == 1).menuTitle}>Sobre</Text>
+          <Text style={pokemonView(selectMenu == 1).menuTitle}>About</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => setSelectMenu(2)}
           hitSlop={{ top: 15, bottom: 15, left: 30, right: 30 }}
         >
           {selectMenu == 2 ? <Pokeball width={90} height={90} style={pokemonView().pokeballIcon} /> : null}
-          <Text style={pokemonView(selectMenu == 2).menuTitle}>Status</Text>
+          <Text style={pokemonView(selectMenu == 2).menuTitle}>Stats</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => setSelectMenu(3)}
           hitSlop={{ top: 15, bottom: 15, left: 30, right: 30 }}
         >
           {selectMenu == 3 ? <Pokeball width={90} height={90} style={pokemonView().pokeballIcon} /> : null}
-          <Text style={pokemonView(selectMenu == 3).menuTitle}>Evolucao</Text>
+          <Text style={pokemonView(selectMenu == 3).menuTitle}>Evolution</Text>
         </TouchableOpacity>
       </View>
       <View style={pokemonView().viewCard}>
