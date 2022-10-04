@@ -128,7 +128,7 @@ const PokemonInfo = (props) => {
 function HomeScreen ({ navigation }) {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: '#FFF',
   };
 
   const [isLoading, setLoading] = useState(true);
@@ -151,7 +151,7 @@ function HomeScreen ({ navigation }) {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        // barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
@@ -161,9 +161,7 @@ function HomeScreen ({ navigation }) {
         <Title />
         <SearchBar />
         <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
+          style={backgroundStyle}>
           {pokemons.map(pokemon => {
             return <View key={pokemon.id} style={{ marginBottom: -15 }}>
               <PokemonCard
