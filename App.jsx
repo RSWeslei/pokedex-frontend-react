@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './src/assets/pages/Login/login';
-import HomeScreen from "./src/components/Home";
-import PokemonViewer from "./src/components/PokemonViewer";
+import Login from './src/pages/Login';
+import HomeScreen from "./src/pages/Home";
+import PokemonViewer from "./src/pages/PokemonViewer";
 import {
   SafeAreaView,
   ScrollView,
