@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from "./src/components/Home";
-import PokemonViewer from "./src/components/PokemonViewer";
+import Login from './src/pages/Login';
+import HomeScreen from "./src/pages/Home";
+import PokemonViewer from "./src/pages/PokemonViewer";
 import {
   SafeAreaView,
   ScrollView,
@@ -42,6 +43,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="PokemonViewer" component={PokemonViewer} />
       </Stack.Navigator>

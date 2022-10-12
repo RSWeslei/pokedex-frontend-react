@@ -3,9 +3,11 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export const styles = (props) => StyleSheet.create({
   title: {
-    marginTop: 25,
+    width: '80%',
+    marginTop: 20,
     marginBottom: 20,
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignSelf: 'center',
     alignItems: 'center',
   },
@@ -23,8 +25,8 @@ export const styles = (props) => StyleSheet.create({
     fontWeight: 'bold'
   },
   titleLogo: {
-    width: 40,
-    height: 40,
+    width: 150,
+    height: 80,
   },
   searchBarInput: {
     flex: 1,
@@ -42,8 +44,8 @@ export const styles = (props) => StyleSheet.create({
     padding: 10,
   },
   pokemonImage: {
-    width: 170,
-    height: 170,
-    marginTop: -40,
+    width: 150,
+    height: 150,
+    marginTop: -35,
   },
 });

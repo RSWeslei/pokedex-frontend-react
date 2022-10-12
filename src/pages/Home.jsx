@@ -25,8 +25,8 @@ import DotsCard from '../assets/svg-icons/pattern.svg'
 const Title = () => {
   return (
     <View style={styles().title}>
-      <Text style={styles().titleText}>PokedexApp</Text>
-      <Image source={require('../assets/icon.png')} style={styles().titleLogo} />
+      {/*<Text style={styles().titleText}>PokedexApp</Text>*/}
+      <Image source={require('../assets/logo.png')} style={styles().titleLogo} />
       <View style={styles().titleIcons}>
         <Icon
           name="apps-outline"
