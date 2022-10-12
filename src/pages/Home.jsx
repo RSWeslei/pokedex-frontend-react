@@ -73,7 +73,7 @@ const PokemonCard = (props) => {
     <View>
       <TouchableOpacity onPress={() => {
           props.navigation.navigate('PokemonViewer', {
-            pokemon: props.pokemon
+            pokemonId: props.pokemon.id
           })
         }
       }>
@@ -126,7 +126,6 @@ const PokemonInfo = (props) => {
 }
 
 function HomeScreen ({ navigation }) {
-  const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
     backgroundColor: '#FFF',
   };

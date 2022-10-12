@@ -23,7 +23,7 @@ export const pokemonView = (props) => StyleSheet.create({
     },
     viewCard: {
         backgroundColor: '#ffff',
-        height: '60%',
+        height: '63%',
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
