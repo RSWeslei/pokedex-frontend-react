@@ -17,11 +17,11 @@ import typesColors from '../styles/typesColors';
 const About = (props) => {
   return (
     <View style={pokemonView().aboutCard}>
-      <Text style={pokemonView(getBackgroundColor(props)).titles}>About</Text>
+      <Text style={pokemonView(getBackgroundColor(props.pokemon)).titles}>About</Text>
       <Text lineBreakMode='true' style={pokemonView().description}>
         {props.pokemon.description}
       </Text>
-      <Text style={pokemonView(getBackgroundColor(props)).titles}>Pokedex Data</Text>
+      <Text style={pokemonView(getBackgroundColor(props.pokemon)).titles}>Pokedex Data</Text>
       <View style={pokemonView().pokemonData}>
         <View style={pokemonView().pokemonDataTitleParent}>
           <Text style={pokemonView().pokemonDataTitle}>Height:</Text>
@@ -54,49 +54,50 @@ const About = (props) => {
 const BasicStats = (props) => {
   let types = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   let types2 = [10, 11, 12, 13, 14, 15, 16, 17, 18];
+  const pokemon = props.pokemon
   return (
     <View style={statusStyles().statusCard}>
-      <Text style={pokemonView(getBackgroundColor(props)).titles}>Basic Stats</Text>
+      <Text style={pokemonView(getBackgroundColor(pokemon)).titles}>Basic Stats</Text>
       <View>
         <BasicStat
           name={'HP'}
-          stat={props.pokemon.stat.hp}
-          maxValue={props.pokemon.stat.minHp}
-          type={getBackgroundColor(props)}
+          stat={pokemon.stat.hp}
+          maxValue={pokemon.stat.minHp}
+          type={getBackgroundColor(pokemon)}
         />
         <BasicStat
           name={'Attack'}
-          stat={props.pokemon.stat.attack}
-          maxValue={props.pokemon.stat.minAttack}
-          type={getBackgroundColor(props)}
+          stat={pokemon.stat.attack}
+          maxValue={pokemon.stat.minAttack}
+          type={getBackgroundColor(pokemon)}
         />
         <BasicStat
           name={'Defense'}
-          stat={props.pokemon.stat.defense}
-          maxValue={props.pokemon.stat.minDefense}
-          type={getBackgroundColor(props)}
+          stat={pokemon.stat.defense}
+          maxValue={pokemon.stat.minDefense}
+          type={getBackgroundColor(pokemon)}
         />
         <BasicStat
           name={'Sp. Attack'}
-          stat={props.pokemon.stat.specialAttack}
-          maxValue={props.pokemon.stat.minSpecialAttack}
-          type={getBackgroundColor(props)}
+          stat={pokemon.stat.specialAttack}
+          maxValue={pokemon.stat.minSpecialAttack}
+          type={getBackgroundColor(pokemon)}
         />
         <BasicStat
           name={'Sp. Defense'}
-          stat={props.pokemon.stat.specialDefense}
-          maxValue={props.pokemon.stat.minSpecialDefense}
-          type={getBackgroundColor(props)}
+          stat={pokemon.stat.specialDefense}
+          maxValue={pokemon.stat.minSpecialDefense}
+          type={getBackgroundColor(pokemon)}
         />
         <BasicStat
           name={'Speed'}
-          stat={props.pokemon.stat.speed}
-          maxValue={props.pokemon.stat.minSpeed}
-          type={getBackgroundColor(props)}
+          stat={pokemon.stat.speed}
+          maxValue={pokemon.stat.minSpeed}
+          type={getBackgroundColor(pokemon)}
         />
       </View>
-      <Text style={pokemonView(getBackgroundColor(props)).titles}>Types of defenses</Text>
-      <Text style={statusStyles(getBackgroundColor(props)).statusSubtitle}>{`The effectiveness of each type on the pokemon ${props.pokemon.name}`}</Text>
+      <Text style={pokemonView(getBackgroundColor(pokemon)).titles}>Types of defenses</Text>
+      <Text style={statusStyles(getBackgroundColor(pokemon)).statusSubtitle}>{`The effectiveness of each type on the pokemon ${pokemon.name}`}</Text>
       <View style={[statusStyles().defensesTypesContainer]}>
         {types2.map(type => (
           <View key={type}>
@@ -128,33 +129,35 @@ const BasicStats = (props) => {
 import Arrow from '../assets/svg-icons/arrow.svg'
 import PokeballFull from '../assets/svg-icons/pokeballFullColor.svg'
 const Evolutions = (props) => {
+  const pokemon = props.pokemon
   return (
     <View style={evolutionStyles().evolutionsCard}>
-      <Text style={pokemonView(getBackgroundColor(props)).titles}>Evolutions</Text>
+      <Text style={pokemonView(getBackgroundColor(pokemon)).titles}>Evolutions</Text>
       <View style={evolutionStyles().evolutionToContainer}>
-        <EvolutionPokemon pokemon={props.pokemon}/>
+        <EvolutionPokemon pokemon={pokemon}/>
         <Arrow width={30} height={30} style={evolutionStyles().arrow}></Arrow>
-        <EvolutionPokemon pokemon={props.pokemon}/>
+        <EvolutionPokemon pokemon={pokemon}/>
       </View>
       <View style={evolutionStyles().evolutionToContainer}>
-        <EvolutionPokemon pokemon={props.pokemon}/>
+        <EvolutionPokemon pokemon={pokemon}/>
         <Arrow width={30} height={30} style={evolutionStyles().arrow}></Arrow>
-        <EvolutionPokemon pokemon={props.pokemon}/>
+        <EvolutionPokemon pokemon={pokemon}/>
       </View>
     </View>
   )
 }
 
 const EvolutionPokemon = (props) => {
+  const pokemon = props.pokemon
   return (
     <View style={evolutionStyles().evolutionTo}>
       <PokeballFull width={130} height={130} style={evolutionStyles().pokeball}/>
-      <Image source={{ uri: props.pokemon.images.artwork }} style={evolutionStyles().pokemonImage} />
-      <Text style={{fontStyle: 'italic', marginTop: 10, fontSize: 15}}>{props.pokemon.id.toString().length == 1 ? '#00'
-        : props.pokemon.id.toString().length == 2
-          ? '#0' : '#'}{props.pokemon.id}
+      <Image source={{ uri: pokemon.images.artwork }} style={evolutionStyles().pokemonImage} />
+      <Text style={{fontStyle: 'italic', marginTop: 10, fontSize: 15}}>{pokemon.id.toString().length == 1 ? '#00'
+        : pokemon.id.toString().length == 2
+          ? '#0' : '#'}{pokemon.id}
       </Text>
-      <Text style={evolutionStyles().pokemonName}>{props.pokemon.name}</Text>
+      <Text style={evolutionStyles().pokemonName}>{pokemon.name}</Text>
     </View>
   )
 }
@@ -181,30 +184,22 @@ const BasicStat = (props) => {
   )
 }
 
-const getBackgroundColor = (props) => {
-  return props.pokemon.types.length == 2
-    ? props.pokemon.types[1].name
-    : props.pokemon.types[0].name
+const getBackgroundColor = (pokemon) => {
+  return pokemon.types.length == 2
+    ? pokemon.types[1].name
+    : pokemon.types[0].name
 }
 
 const getDefense = (props, type) => {
-  let effectiveness = props.typesDefense.find((typeDefense) => typeDefense.idType == type)?.value
-  if (effectiveness == 0) {
-    return null
-  } else if (effectiveness == 0.25) {
+  let effectiveness = props.pokemon.damageRelation.find((typeDefense) => typeDefense.idType == type)?.value
+  if (effectiveness == 0.25) {
     return '1/4'
   }
   else if (effectiveness == 0.5) {
     return '1/2'
   }
-  else if (effectiveness == 2) {
-    return '2'
-  }
-  else if (effectiveness == 4) {
-    return '4'
-  }
   else {
-    return null
+    return effectiveness
   }
 }
 
@@ -214,18 +209,13 @@ import Pokeball from '../assets/svg-icons/pokeballFull.svg'
 
 function PokemonViewer({ route, navigation }) {
   let [selectMenu, setSelectMenu] = useState(1);
-  const pokemon = route.params.pokemon
+  const pokemonId = route.params.pokemonId
   const [isLoading, setLoading] = useState(true);
-  const [typesDefense, setTypesDefense] = useState();
-
-  let types = []
-  pokemon.types.forEach(type => {
-    types.push(type.id)
-  });
+  const [pokemon, setPokemon] = useState();
 
   useEffect(() => {
-    api.post("/type-damages", { types: types }).then(response => {
-      setTypesDefense(response.data);
+    api.get(`/pokemons/${pokemonId}`).then(response => {
+      setPokemon(response.data);
       setLoading(false);
     });
   }, []);
@@ -237,10 +227,9 @@ function PokemonViewer({ route, navigation }) {
       </View>
     )
   }
-
   return (
     <View
-      style={pokemonView(getBackgroundColor(route.params)).mainContainer}
+      style={pokemonView(getBackgroundColor(pokemon)).mainContainer}
     >
       <TouchableOpacity
         style={pokemonView().backButton}
@@ -285,7 +274,7 @@ function PokemonViewer({ route, navigation }) {
       </View>
       <View style={pokemonView().viewCard}>
         {selectMenu == 1 ? <About pokemon={pokemon} /> : null}
-        {selectMenu == 2 ? <BasicStats typesDefense={typesDefense} pokemon={pokemon} /> : null}
+        {selectMenu == 2 ? <BasicStats pokemon={pokemon} /> : null}
         {selectMenu == 3 ? <Evolutions pokemon={pokemon} /> : null}
       </View>
     </View>
