@@ -8,7 +8,7 @@ import {
   Button
 } from 'react-native';
 import kgToLbs from '../utils/converter';
-import { PokemonInfo } from './Home';
+import { PokemonInfo } from '../components/PokemonInfo';
 import { React, useState, useEffect } from 'react';
 import api from '../plugins/axios.js';
 import typesSvgs from '../assets/type-icons/typesSvgs.js';
