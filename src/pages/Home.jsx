@@ -1,17 +1,10 @@
 import { React, useState, useEffect } from 'react';
-// import api from '../plugins/axios.js';
-import api from '../plugins/axios.js';
-// import { SvgUri } from 'react-native-svg';
-// import { Node } from 'react';
-import { Title } from '../components/Title';
-import { SearchBar } from '../components/SearchBar';
-import { PokemonCard } from '../components/PokemonCard';
-
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
-// import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-// import { styles } from '../styles/styles';
-// import { pokemonCardStyles } from '../styles/pokemonCardStyles';
+import api from '../plugins/axios.js';
+import Title from '../components/Title';
+import SearchBar from '../components/SearchBar';
+import PokemonCard from '../components/PokemonCard';
 
 function HomeScreen ({ navigation }) {
   const backgroundStyle = {
@@ -38,15 +31,14 @@ function HomeScreen ({ navigation }) {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
-        // barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
         bounces={true}
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Title />
-        <SearchBar />
+        <Title/>
+        <SearchBar/>
         <View
           style={backgroundStyle}>
           {pokemons.map(pokemon => {
@@ -62,7 +54,5 @@ function HomeScreen ({ navigation }) {
     </SafeAreaView>
   );
 };
-
-
 
 export default HomeScreen;

@@ -1,18 +1,22 @@
-import {
-  Text,
-  Image,
-  TouchableOpacity,
-  View,
-  Animated,
-  StyleSheet,
-  Button
-} from 'react-native';
-import kgToLbs from '../utils/converter';
-import { PokemonInfo } from '../components/PokemonInfo';
-import { React, useState, useEffect } from 'react';
-import api from '../plugins/axios.js';
-import typesSvgs from '../assets/type-icons/typesSvgs.js';
-import typesColors from '../styles/typesColors';
+import { React, useState, useEffect } from 'react'
+import { Text, Image, TouchableOpacity, View, Animated, StyleSheet} from 'react-native'
+
+import api from '../plugins/axios.js'
+import kgToLbs from '../utils/converter'
+import GradientText from '../utils/TextGradient'
+import PokemonInfo from '../components/PokemonInfo'
+
+import Arrow from '../assets/svg-icons/arrow.svg'
+import typesSvgs from '../assets/type-icons/typesSvgs.js'
+import CirclePokemon from '../assets/svg-icons/circle.svg'
+import Pokeball from '../assets/svg-icons/pokeballFull.svg'
+import DotsPattern from '../assets/svg-icons/dotsPattern.svg'
+import PokeballFull from '../assets/svg-icons/pokeballFullColor.svg'
+
+import typesColors from '../styles/typesColors'
+import { pokemonView } from '../styles/pokemonView'
+import { statusStyles } from '../styles/pokemonViewStatus'
+import { evolutionStyles } from '../styles/pokemonViewEvolution'
 
 const About = (props) => {
   return (
@@ -126,8 +130,6 @@ const BasicStats = (props) => {
   )
 }
 
-import Arrow from '../assets/svg-icons/arrow.svg'
-import PokeballFull from '../assets/svg-icons/pokeballFullColor.svg'
 const Evolutions = (props) => {
   const pokemon = props.pokemon
   return (
@@ -203,10 +205,6 @@ const getDefense = (props, type) => {
   }
 }
 
-import CirclePokemon from '../assets/svg-icons/circle.svg'
-import DotsPattern from '../assets/svg-icons/dotsPattern.svg'
-import Pokeball from '../assets/svg-icons/pokeballFull.svg'
-
 function PokemonViewer({ route, navigation }) {
   let [selectMenu, setSelectMenu] = useState(1);
   const pokemonId = route.params.pokemonId
@@ -281,9 +279,4 @@ function PokemonViewer({ route, navigation }) {
   );
 }
 
-import GradientText from '../utils/TextGradient';
-
-import { evolutionStyles } from '../styles/pokemonViewEvolution';
-import { pokemonView } from '../styles/pokemonView';
-import { statusStyles } from '../styles/pokemonViewStatus';
 export default PokemonViewer;
