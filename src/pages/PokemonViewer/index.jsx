@@ -1,22 +1,22 @@
 import { React, useState, useEffect } from 'react'
-import { Text, Image, TouchableOpacity, View, Animated, StyleSheet} from 'react-native'
+import { Text, Image, TouchableOpacity, View, Animated, StyleSheet} from 'react-native';
 
-import api from '../plugins/axios.js'
-import kgToLbs from '../utils/converter'
-import GradientText from '../utils/TextGradient'
-import PokemonInfo from '../components/PokemonInfo'
+import api from '../../plugins/axios.js';
+import kgToLbs from '../../utils/converter';
+import GradientText from '../../utils/TextGradient';
+import PokemonInfo from '../../components/PokemonInfo';
 
-import Arrow from '../assets/svg-icons/arrow.svg'
-import typesSvgs from '../assets/type-icons/typesSvgs.js'
-import CirclePokemon from '../assets/svg-icons/circle.svg'
-import Pokeball from '../assets/svg-icons/pokeballFull.svg'
-import DotsPattern from '../assets/svg-icons/dotsPattern.svg'
-import PokeballFull from '../assets/svg-icons/pokeballFullColor.svg'
+import Arrow from '../../assets/svg-icons/arrow.svg';
+import typesSvgs from '../../assets/type-icons/typesSvgs.js';
+import CirclePokemon from '../../assets/svg-icons/circle.svg';
+import Pokeball from '../../assets/svg-icons/pokeballFull.svg';
+import DotsPattern from '../../assets/svg-icons/dotsPattern.svg';
+import PokeballFull from '../../assets/svg-icons/pokeballFullColor.svg';
 
-import typesColors from '../styles/typesColors'
-import { pokemonView } from '../styles/pokemonView'
-import { statusStyles } from '../styles/pokemonViewStatus'
-import { evolutionStyles } from '../styles/pokemonViewEvolution'
+import typeColors from '../../styles/typeColors';
+import { pokemonView } from './styles';
+import { statusStyles } from './styles';
+import { evolutionStyles } from './styles';
 
 const About = (props) => {
   return (
@@ -105,7 +105,7 @@ const BasicStats = (props) => {
       <View style={[statusStyles().defensesTypesContainer]}>
         {types2.map(type => (
           <View key={type}>
-            <View style={statusStyles(typesColors(type)).defensesTypes}>
+            <View style={statusStyles(typeColors(type)).defensesTypes}>
               {typesSvgs(type, width = 30, height = 30)}
             </View>
             <Text style={statusStyles().typeDefenseText}>
@@ -117,7 +117,7 @@ const BasicStats = (props) => {
       <View style={statusStyles().defensesTypesContainer}>
         {types.map(type => (
           <View key={type}>
-            <View style={statusStyles(typesColors(type)).defensesTypes}>
+            <View style={statusStyles(typeColors(type)).defensesTypes}>
               {typesSvgs(type, width = 30, height = 30)}
             </View>
             <Text style={statusStyles().typeDefenseText}>
