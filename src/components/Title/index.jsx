@@ -2,14 +2,14 @@ import React from 'react';
 import { Image, View } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 
-import { styles } from '../../styles/styles';
+import { globalStyles } from '../../styles/globalStyles';
 
 const Title = () => {
     return (
-      <View style={styles().title}>
+      <View style={globalStyles().title}>
         {/*<Text style={styles().titleText}>PokedexApp</Text>*/}
-        <Image source={require('../../assets/logo.png')} style={styles().titleLogo} />
-        <View style={styles().titleIcons}>
+        <Image source={require('../../assets/logo.png')} style={globalStyles().titleLogo} />
+        <View style={globalStyles().titleIcons}>
           <Icon
             name="apps-outline"
             type='ionicon'

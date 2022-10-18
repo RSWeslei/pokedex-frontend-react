@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-export const styles = (props) => StyleSheet.create({
+export const globalStyles = (props) => StyleSheet.create({
   title: {
     width: '80%',
     marginTop: 20,

@@ -4,18 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/pages/Login';
 import HomeScreen from "./src/pages/Home";
 import PokemonViewer from "./src/pages/PokemonViewer";
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  useColorScheme,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Button,
-  View,
-} from 'react-native';
 
 function App() {
   // useEffect(() => {

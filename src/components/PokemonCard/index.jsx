@@ -7,8 +7,8 @@ import PokemonInfo from '../PokemonInfo';
 import PokeballCard from '../../assets/svg-icons/pokeball.svg'
 import DotsCard from '../../assets/svg-icons/pattern.svg'
 
-import { styles } from '../../styles/styles';
-import { pokemonCardStyles } from '../../styles/pokemonCardStyles';
+import { globalStyles } from '../../styles/globalStyles';
+import { pokemonCardStyles } from '../../pages/PokemonViewer/styles';
 
 const getCardColor = (props) => {
   return props.pokemon.types.length == 2
@@ -37,7 +37,7 @@ const PokemonCard = (props) => {
                 height="150"
                 uri={props.pokemon.images.svgs.front_default}
               ></SvgUri> */}
-              <Image source={{ uri: props.pokemon.images.artwork }} style={styles().pokemonImage} />
+              <Image source={{ uri: props.pokemon.images.artwork }} style={globalStyles().pokemonImage} />
             </View>
           </View>
         </Card>

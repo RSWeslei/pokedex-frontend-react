@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from 'react-native-elements';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { pokemonCardStyles } from '../../styles/pokemonCardStyles';
+import { pokemonCardStyles } from '../../pages/PokemonViewer/styles';
 
 import typesSvgs from '../../assets/type-icons/typesSvgs.js';
 

@@ -1,10 +1,10 @@
 import { React, useState, useEffect } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
 
-import api from '../plugins/axios.js';
-import Title from '../components/Title';
-import SearchBar from '../components/SearchBar';
-import PokemonCard from '../components/PokemonCard';
+import api from '../../plugins/axios.js';
+import Title from '../../components/Title';
+import SearchBar from '../../components/SearchBar';
+import PokemonCard from '../../components/PokemonCard';
 
 function HomeScreen ({ navigation }) {
   const backgroundStyle = {

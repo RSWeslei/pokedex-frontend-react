@@ -1,13 +1,13 @@
 import React from "react";
 import { View, TextInput } from 'react-native';
 
-import { styles } from '../../styles/styles';
+import { globalStyles } from '../../styles/globalStyles';
 
 const SearchBar = () => {
     return (
-      <View style={styles().searchBar}>
+      <View style={globalStyles().searchBar}>
         <TextInput
-          style={styles().searchBarInput}
+          style={globalStyles().searchBarInput}
           placeholder="Search pokemon"
         />
       </View>
