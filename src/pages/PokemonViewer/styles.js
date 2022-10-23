@@ -170,32 +170,48 @@ export const pokemonCardStyles = (props) => StyleSheet.create({
 
 export const evolutionStyles = (props, value, maxValue) => StyleSheet.create({
     evolutionsCard: {
+        alignContent: 'center',
+        justifyContent: 'center',
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: cardColors[props],
         alignSelf: 'flex-start',
-        marginLeft: 30,
+        marginTop: 10,
     },
     evolutionToContainer: {
         flexDirection: 'row',
         marginTop: 20,
-        alignItems: 'center',
+        alignItems: 'center'
     },
     evolutionTo: {
-        alignItems: 'center',
+        alignItems: 'center'
     },
     pokemonImage: {
         width: 100,
-        height: 100,
+        height: 100
     },
     pokemonName: {
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     pokeball: {
-        position: 'absolute',
-        alignSelf: 'center',
-        marginTop: '-15%',
+        position: 'absolute'
     },
     arrow: {
-        marginHorizontal: 30,
+        marginHorizontal: 45
+    },
+    level: {
+        fontSize: 15,
+        flexDirection: 'row',
+        textAlign: 'center',
+        fontWeight: 'bold'
+    },
+    noEvolution: {
+        fontSize: 15,
+        textAlign: 'center',
+        fontWeight: 'bold'
     }
 });
 
