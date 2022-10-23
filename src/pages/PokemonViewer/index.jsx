@@ -133,24 +133,63 @@ const BasicStats = (props) => {
 const Evolutions = (props) => {
   const pokemon = props.pokemon
   return (
-    <View style={evolutionStyles().evolutionsCard}>
-      <Text style={pokemonView(getBackgroundColor(pokemon)).titles}>Evolutions</Text>
-      <View style={evolutionStyles().evolutionToContainer}>
-        <EvolutionPokemon pokemon={pokemon}/>
-        <Arrow width={30} height={30} style={evolutionStyles().arrow}></Arrow>
-        <EvolutionPokemon pokemon={pokemon}/>
+    <View style={{height: '100%'}}>
+      <Text style={evolutionStyles(getBackgroundColor(pokemon)).title}>Evolutions</Text>
+      <View style={evolutionStyles().evolutionsCard}>
+        <Evolution pokemon={pokemon} isFirstEvolution={true}/>
+        <Evolution pokemon={pokemon} isFirstEvolution={false}/>
       </View>
+    </View>
+  )
+}
+
+const Evolution = (props) => {
+  const pokemon = props.pokemon
+  let first, second, level
+  if (props.isFirstEvolution) {
+    first = pokemon.evolution.firstEvolution
+    second = pokemon.evolution.secondEvolution
+    level = pokemon.evolution.firstEvolutionLevel
+  }
+  else {
+    first = pokemon.evolution.secondEvolution
+    second = pokemon.evolution.thirdEvolution
+    level = pokemon.evolution.secondEvolutionLevel
+  }
+  if (!first && !second) {
+    return (
       <View style={evolutionStyles().evolutionToContainer}>
-        <EvolutionPokemon pokemon={pokemon}/>
-        <Arrow width={30} height={30} style={evolutionStyles().arrow}></Arrow>
-        <EvolutionPokemon pokemon={pokemon}/>
+        <Text style={evolutionStyles().noEvolution}>This pokemon doesn't evolve</Text>
       </View>
+    )
+  }
+  if (!second) {
+    return (
+      null
+    )
+  }
+  return (
+    <View style={evolutionStyles().evolutionToContainer}>
+      <EvolutionPokemon pokemon={first}/>
+      <View>
+        <Arrow width={25} height={25} style={evolutionStyles().arrow}></Arrow>
+        <Text style={evolutionStyles().level}>(Level {level})</Text>
+      </View>
+      <EvolutionPokemon pokemon={second}/>
     </View>
   )
 }
 
 const EvolutionPokemon = (props) => {
   const pokemon = props.pokemon
+  if (!pokemon) {
+    return (
+      <View style={evolutionStyles().evolutionPokemon}>
+        <View style={evolutionStyles().evolutionPokemonImage}></View>
+        <Text style={evolutionStyles().evolutionPokemonName}></Text>
+      </View>
+    )
+  }
   return (
     <View style={evolutionStyles().evolutionTo}>
       <PokeballFull width={130} height={130} style={evolutionStyles().pokeball}/>
