@@ -4,10 +4,12 @@ import { Button, Icon } from 'react-native-elements';
 
 import { globalStyles } from '../../styles/globalStyles';
 
-const Title = () => {
+const Title = ({navigation}) => {
     return (
+
       <View style={globalStyles().title}>
         {/*<Text style={styles().titleText}>PokedexApp</Text>*/}
+        <Icon name="menu" size={30} color="#000" onPress={() => navigation.openDrawer()} />
         <Image source={require('../../assets/logo.png')} style={globalStyles().titleLogo} />
         <View style={globalStyles().titleIcons}>
           <Icon

@@ -1,5 +1,7 @@
+import 'react-native-gesture-handler';
 import React, { useEffect } from "react";
 import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/pages/Login';
 import HomeScreen from "./src/pages/Home";
@@ -27,16 +29,26 @@ function App() {
   //   return () => backHandler.remove();
   // }, []);
 
-  const Stack = createNativeStackNavigator();
+  const Drawer = createDrawerNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="PokemonViewer" component={PokemonViewer} />
-      </Stack.Navigator>
+      <Drawer.Navigator screenOptions={{ headerShown: false }} initialRouteName="Login">
+        <Drawer.Screen name="Pokemons" component={HomeStackNavigator} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
+
 };
+
+const HomeStackNavigator = () => {
+  const Stack = createNativeStackNavigator();
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Login">
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="PokemonViewer" component={PokemonViewer} />
+    </Stack.Navigator>
+  );
+}
 
 export default App;
