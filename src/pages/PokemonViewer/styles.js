@@ -53,12 +53,6 @@ export const pokemonView = (props) => StyleSheet.create({
         fontSize: props ? 16 : 15,
         fontWeight: props ? 'bold' : 'normal',
     },
-    titles: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: cardColors[props],
-        marginTop: 10,
-    },
     pokemonView: {
         alignItems: 'center',
         alignSelf: 'center',
@@ -71,9 +65,18 @@ export const pokemonView = (props) => StyleSheet.create({
         width: 150,
         height: 150,  
     },
-    aboutCard: {
+    dataContainer: {
         alignSelf: 'flex-start',
-        marginLeft: 30,
+        height: '100%',
+        width: '100%',
+        padding: 30,
+    },  
+    dataContainerSubtitle: {
+        color: cardColors[props],
+        alignSelf: 'flex-start',
+        fontWeight: 'bold',
+        fontSize: 20,
+        marginBottom: 12,
     },
     pokeballIcon: {
         position: 'absolute',
@@ -82,22 +85,20 @@ export const pokemonView = (props) => StyleSheet.create({
     },
     description: {
         fontSize: 15,
-        marginTop: 15,
-        marginBottom: 10,
-        textAlignVertical: 'center',
+        fontWeight: 'normal',
+        marginBottom: 15,
+        marginStart: 10,
     },
     pokemonData: {
         flex: 1,
-        marginTop: 20,
         marginStart: 10,
     },
     pokemonDataTitle: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 10,
-        width: '30%',
         flexDirection: 'row',
-        marginRight: -60,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        fontSize: 16,
+        width: '25%',
     },
     pokemonDataText: {
         flex: 1,
@@ -106,9 +107,9 @@ export const pokemonView = (props) => StyleSheet.create({
         alignSelf: 'flex-start',
     },
     pokemonDataTitleParent: {
-        flexDirection: 'row',
         justifyContent: 'space-between',
-        width: '80%',
+        flexDirection: 'row',
+        width: '100%',
     }
 });
 
@@ -116,7 +117,8 @@ export const pokemonCardStyles = (props) => StyleSheet.create({
     pokemonCardName: {
         textAlign: 'left',
         color: Colors.white,
-        fontSize: 30
+        fontSize: 30,
+        marginBottom: 5
     },
     pokemonCardId: {
         fontSize: 16,
@@ -155,7 +157,12 @@ export const pokemonCardStyles = (props) => StyleSheet.create({
         padding: 10,
         margin: 10,
         marginBottom: 40,
-        height: 150,
+        height: 140,
+    },
+    pokemonCardTouchable: {
+        width: '100%', 
+        height: '100%',
+        borderRadius: 10,
     },
     pokeballBackground: {
         position: 'absolute',
@@ -164,7 +171,7 @@ export const pokemonCardStyles = (props) => StyleSheet.create({
     },
     dotsBackground: {
         position: 'absolute',
-        marginStart: 70
+        marginStart: 70,
     }
 });
 
@@ -223,26 +230,21 @@ export const statusStyles = (props, value, maxValue) => StyleSheet.create({
         marginTop: 40,
     },
     basicStatus: {
-        flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: 10,
+        flexDirection: 'row',
+        marginTop: 8,
     },
-    statusTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: cardColors[props],
-    },
-    statusSubtitle: {
-        fontSize: 18,
+    defensesText: {
         fontWeight: 'normal',
         color: 'grey',
-        marginVertical: 10,
+        fontSize: 17,
+        marginBottom: 8
     },
     basicStatusBar: {
         height: 7,
         width: '45%',
-        marginLeft: 10,
+        marginHorizontal: 8,
         backgroundColor: 'rgba(0, 0, 0, 0.05)',
         borderRadius: 10,
     },
@@ -256,21 +258,22 @@ export const statusStyles = (props, value, maxValue) => StyleSheet.create({
         fontWeight: 'bold',
         alignSelf: 'flex-start',
         marginEnd: 10,
-        width: '25%',
+        width: '30%',
     },
     basicStatusText: {
-        fontSize: 17,
-        width: '10%',
+        fontSize: 15,
+        width: '12%',
         alignSelf: 'flex-start',
         textAlign: 'left',
     },
     maxStatValue: {
+        fontSize: 15,
         marginRight: '5%',
     },
     defensesTypesContainer: {
         justifyContent: 'space-between',
         flexDirection: 'row',
-        marginBottom: 20,
+        marginBottom: 10,
     },
     defensesTypes: {
         width: 30,
@@ -284,5 +287,8 @@ export const statusStyles = (props, value, maxValue) => StyleSheet.create({
         fontSize: 16,
         alignSelf: 'center',
         marginTop: 5,
+    },
+    statsContainer: {
+        marginStart: 10
     }
 });

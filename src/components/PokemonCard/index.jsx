@@ -18,31 +18,31 @@ const getCardColor = (props) => {
 
 const PokemonCard = (props) => {
   return (
-    <View>
-      <TouchableOpacity onPress={() => {
-        props.navigation.navigate('PokemonViewer', {
-          pokemonId: props.pokemon.id
-        })
-      }
-      }>
-        <Card containerStyle={pokemonCardStyles(getCardColor(props)).pokemonCard}>
-          <DotsCard width={110} height={40} style={pokemonCardStyles().dotsBackground} />
-          <PokeballCard width={150} height={150} style={pokemonCardStyles().pokeballBackground} PokeballCard />
-          <View style={{ flexDirection: 'row' }}>
-            <PokemonInfo pokemon={props.pokemon} />
-            <View style={{ marginLeft: 'auto' }}>
-              {/* <SvgUri
-                style={pokemonCardStyles().pokemonImage}
-                width="150"
-                height="150"
-                uri={props.pokemon.images.svgs.front_default}
-              ></SvgUri> */}
-              <Image source={{ uri: props.pokemon.images.artwork }} style={globalStyles().pokemonImage} />
-            </View>
+    <Card containerStyle={pokemonCardStyles(getCardColor(props)).pokemonCard}>
+      <TouchableOpacity 
+        onPress={() => {
+          props.navigation.navigate('PokemonViewer', {
+            pokemonId: props.pokemon.id
+          })
+        }}
+        style={pokemonCardStyles().pokemonCardTouchable}
+      >
+        <DotsCard width={110} height={40} style={pokemonCardStyles().dotsBackground} />
+        <PokeballCard width={150} height={150} style={pokemonCardStyles().pokeballBackground} PokeballCard />
+        <View style={{ flexDirection: 'row' }}>
+          <PokemonInfo pokemon={props.pokemon} />
+          <View style={{ marginLeft: 'auto' }}>
+            {/* <SvgUri
+              style={pokemonCardStyles().pokemonImage}
+              width="150"
+              height="150"
+              uri={props.pokemon.images.svgs.front_default}
+            ></SvgUri> */}
+            <Image source={{ uri: props.pokemon.images.artwork }} style={globalStyles().pokemonImage} />
           </View>
-        </Card>
+        </View>
       </TouchableOpacity>
-    </View>
+    </Card>
   );
 }
 

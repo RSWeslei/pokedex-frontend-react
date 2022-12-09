@@ -5,6 +5,7 @@ import api from '../../plugins/axios.js';
 import kgToLbs from '../../utils/converter';
 import GradientText from '../../utils/TextGradient';
 import PokemonInfo from '../../components/PokemonInfo';
+import Loading from '../../components/Loading/index.jsx';
 
 import Arrow from '../../assets/svg-icons/arrow.svg';
 import typesSvgs from '../../assets/type-icons/typesSvgs.js';
@@ -19,26 +20,27 @@ import { statusStyles } from './styles';
 import { evolutionStyles } from './styles';
 
 const About = (props) => {
+  const pokemon = props.pokemon
   return (
-    <View style={pokemonView().aboutCard}>
-      <Text style={pokemonView(getBackgroundColor(props.pokemon)).titles}>About</Text>
-      <Text lineBreakMode='true' style={pokemonView().description}>
-        {props.pokemon.description}
+    <View style={pokemonView().dataContainer}>
+      <Text style={pokemonView(getBackgroundColor(pokemon)).dataContainerSubtitle}>About</Text>
+      <Text style={pokemonView().description} textBreakStrategy='simple'>
+        {pokemon.description}
       </Text>
-      <Text style={pokemonView(getBackgroundColor(props.pokemon)).titles}>Pokedex Data</Text>
+      <Text style={pokemonView(getBackgroundColor(pokemon)).dataContainerSubtitle}>Pokedex Data</Text>
       <View style={pokemonView().pokemonData}>
         <View style={pokemonView().pokemonDataTitleParent}>
           <Text style={pokemonView().pokemonDataTitle}>Height:</Text>
-          <Text style={pokemonView().pokemonDataText}>{`${Number(props.pokemon.height).toFixed(1)}m`}</Text>
+          <Text style={pokemonView().pokemonDataText}>{`${Number(pokemon.height).toFixed(1)}m`}</Text>
         </View>
         <View style={pokemonView().pokemonDataTitleParent}>
           <Text style={pokemonView().pokemonDataTitle}>Weight:</Text>
-          <Text style={pokemonView().pokemonDataText}>{`${Number(props.pokemon.weight).toFixed(1) }kg (${kgToLbs(props.pokemon.weight)} lbs)`}</Text>
+          <Text style={pokemonView().pokemonDataText}>{`${Number(pokemon.weight).toFixed(1)}kg (${kgToLbs(pokemon.weight)} lbs)`}</Text>
         </View>
         <View style={pokemonView().pokemonDataTitleParent}>
           <Text style={pokemonView().pokemonDataTitle}>Abilities:</Text>
           <Text style={pokemonView().pokemonDataText}>
-            {props.pokemon?.abilities.map((ability, index) => {
+            {pokemon?.abilities.map((ability, index) => {
               return (
                 <Text
                   key={ability.id}
@@ -60,9 +62,11 @@ const BasicStats = (props) => {
   let types2 = [10, 11, 12, 13, 14, 15, 16, 17, 18];
   const pokemon = props.pokemon
   return (
-    <View style={statusStyles().statusCard}>
-      <Text style={pokemonView(getBackgroundColor(pokemon)).titles}>Basic Stats</Text>
-      <View>
+    <View style={pokemonView().dataContainer}>
+      <Text style={pokemonView(getBackgroundColor(pokemon)).dataContainerSubtitle}>Basic Stats</Text>
+      <View
+        style={[statusStyles().statsContainer, { marginBottom: 10 }]}
+      >
         <BasicStat
           name={'HP'}
           stat={pokemon.stat.hp}
@@ -100,8 +104,8 @@ const BasicStats = (props) => {
           type={getBackgroundColor(pokemon)}
         />
       </View>
-      <Text style={pokemonView(getBackgroundColor(pokemon)).titles}>Types of defenses</Text>
-      <Text style={statusStyles(getBackgroundColor(pokemon)).statusSubtitle}>{`The effectiveness of each type on the pokemon ${pokemon.name}`}</Text>
+      <Text style={pokemonView(getBackgroundColor(pokemon)).dataContainerSubtitle}>Types of defenses</Text>
+      <Text style={statusStyles(getBackgroundColor(pokemon)).defensesText}>{`The effectiveness of each type on the pokemon ${pokemon.name}`}</Text>
       <View style={[statusStyles().defensesTypesContainer]}>
         {types2.map(type => (
           <View key={type}>
@@ -133,8 +137,8 @@ const BasicStats = (props) => {
 const Evolutions = (props) => {
   const pokemon = props.pokemon
   return (
-    <View style={{height: '100%'}}>
-      <Text style={evolutionStyles(getBackgroundColor(pokemon)).title}>Evolutions</Text>
+    <View style={pokemonView().dataContainer}>
+      <Text style={pokemonView(getBackgroundColor(pokemon)).dataContainerSubtitle}>Evolutions</Text>
       <View style={evolutionStyles().evolutionsCard}>
         <Evolution pokemon={pokemon} isFirstEvolution={true}/>
         <Evolution pokemon={pokemon} isFirstEvolution={false}/>
@@ -259,9 +263,7 @@ function PokemonViewer({ route, navigation }) {
 
   if (isLoading) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
-        <Text>Loading...</Text>
-      </View>
+      <Loading/>
     )
   }
   return (
