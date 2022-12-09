@@ -5,6 +5,7 @@ import api from '../../plugins/axios.js';
 import Title from '../../components/Title';
 import SearchBar from '../../components/SearchBar';
 import PokemonCard from '../../components/PokemonCard';
+import Loading from '../../components/Loading/index.jsx';
 
 function HomeScreen ({ navigation }) {
   function filterSearch(text) {
@@ -37,9 +38,7 @@ function HomeScreen ({ navigation }) {
 
   if (isLoading) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
-        <Text>Loading...</Text>
-      </View>
+      <Loading/>
     )
   }
   return (
