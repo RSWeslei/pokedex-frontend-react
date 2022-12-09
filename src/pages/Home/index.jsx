@@ -51,7 +51,7 @@ function HomeScreen ({ navigation }) {
         bounces={true}
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Title/>
+        <Title navigation={navigation}/>
         <SearchBar filterSearch={filterSearch}/>
         <View
           style={backgroundStyle}>
