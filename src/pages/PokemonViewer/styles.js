@@ -156,7 +156,7 @@ export const pokemonCardStyles = (props) => StyleSheet.create({
         borderRadius: 10,
         padding: 10,
         margin: 10,
-        marginBottom: 40,
+        marginBottom: 25,
         height: 140,
     },
     pokemonCardTouchable: {

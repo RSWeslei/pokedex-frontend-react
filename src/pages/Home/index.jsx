@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
+import { SafeAreaView, StatusBar, View, FlatList } from 'react-native';
 
 import api from '../../plugins/axios.js';
 import Title from '../../components/Title';
@@ -41,36 +41,34 @@ function HomeScreen ({ navigation }) {
       <Loading/>
     )
   }
+
+  const renderItem = ({ item }) => {
+    return (
+      <View>
+        <PokemonCard
+          pokemon={item}
+          navigation={navigation}
+        />
+      </View>
+    );
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
-        bounces={true}
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Title navigation={navigation}/>
-        <SearchBar filterSearch={filterSearch}/>
-        <View
-          style={backgroundStyle}>
-          {filteredPokemons.length > 0 ? (filteredPokemons.map(pokemon => {
-            return <View key={pokemon.id} style={{ marginBottom: -15 }}>
-              <PokemonCard
-                pokemon={pokemon}
-                navigation={navigation}
-              />
-            </View>
-          })) : (pokemons.map(pokemon => {
-            return <View key={pokemon.id} style={{ marginBottom: -15 }}>
-              <PokemonCard
-                pokemon={pokemon}
-                navigation={navigation}
-              />
-            </View>
-          }))}
-        </View>
-      </ScrollView>
+      <Title navigation={navigation}/>
+      <SearchBar filterSearch={filterSearch}/>
+      <FlatList
+        style={backgroundStyle}
+        data={filteredPokemons.length > 0 ? filteredPokemons : pokemons}
+        renderItem={renderItem}
+        initialNumToRender = {20}
+        maxToRenderPerBatch={30}
+        keyExtractor={item => item.id.toString()}
+      >
+      </FlatList>
     </SafeAreaView>
   );
 };

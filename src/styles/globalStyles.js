@@ -5,7 +5,6 @@ export const globalStyles = (props) => StyleSheet.create({
   title: {
     width: '80%',
     marginTop: 20,
-    marginBottom: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignSelf: 'center',
@@ -35,10 +34,10 @@ export const globalStyles = (props) => StyleSheet.create({
     padding: 10,
   },
   searchBar: {
-    flex: 1,
     marginLeft: 30,
     marginRight: 30,
-    marginBottom: 30
+    height: 50,
+    marginBottom: 20,
   },
   searchIcon: {
     padding: 10,

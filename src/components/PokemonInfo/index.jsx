@@ -1,10 +1,9 @@
 import React from "react";
 import { Card } from 'react-native-elements';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { pokemonCardStyles } from '../../pages/PokemonViewer/styles';
 
-import typesSvgs from '../../assets/type-icons/typesSvgs.js';
-
+import TypeButtom from "../TypeButtom";
 
 const PokemonInfo = (props) => {
   return (
@@ -16,17 +15,7 @@ const PokemonInfo = (props) => {
       <Card.Title style={pokemonCardStyles().pokemonCardName}>{props.pokemon.name}</Card.Title>
       <View style={{ flexDirection: "row", alignContent: 'space-between' }}>
         {props.pokemon.types.map(type => (
-          <TouchableOpacity
-            key={type.id}
-            title={type.name}
-            style={pokemonCardStyles(type.color).pokemonCardTypeButton}
-            titleStyle={{ color: 'white' }}
-          >
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              {typesSvgs(type.id, pokemonCardStyles().pokemonCardTypeIcon, width = 20, height = 20)}
-              <Text style={pokemonCardStyles().pokemonCardTypeText}>{type.name}</Text>
-            </View>
-          </TouchableOpacity>
+          <TypeButtom type={type} />
         ))}
       </View>
     </View>

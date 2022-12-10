@@ -6342,6 +6342,11 @@
     "react-native-ratings" "8.0.4"
     "react-native-size-matters" "^0.3.1"
 
+"react-native-fast-image@^8.6.3":
+  "integrity" "sha512-Sdw4ESidXCXOmQ9EcYguNY2swyoWmx53kym2zRsvi+VeFCHEdkO+WG1DK+6W81juot40bbfLNhkc63QnWtesNg=="
+  "resolved" "https://registry.npmjs.org/react-native-fast-image/-/react-native-fast-image-8.6.3.tgz"
+  "version" "8.6.3"
+
 "react-native-gesture-handler@^2.8.0", "react-native-gesture-handler@>= 1.0.0":
   "integrity" "sha512-poOSfz/w0IyD6Qwq7aaIRRfEaVTl1ecQFoyiIbpOpfNTjm2B1niY2FLrdVQIOtIOe+K9nH55Qal04nr4jGkHdQ=="
   "resolved" "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.8.0.tgz"
@@ -6438,7 +6443,7 @@
     "prop-types" "^15.7.2"
     "yargs" "^16.1.1"
 
-"react-native@*", "react-native@>=0.46", "react-native@>=0.57", "react-native@>=0.59.0", "react-native@0.70.3":
+"react-native@*", "react-native@>=0.46", "react-native@>=0.57", "react-native@>=0.59.0", "react-native@>=0.60.0", "react-native@0.70.3":
   "integrity" "sha512-EiJxOonyvpSWa3Eik7a6YAD6QU8lK2W9M/DDdYlpWmIlGLCd5110rIpEZjxttsyrohxlRJAYRgJ9Tx2mMXqtfw=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.70.3.tgz"
   "version" "0.70.3"
@@ -6498,7 +6503,7 @@
     "react-shallow-renderer" "^16.15.0"
     "scheduler" "^0.22.0"
 
-"react@*", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.1.0", "react@>=16", "react@>=17.0.0", "react@18.1.0":
+"react@*", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17 || ^18", "react@^18.1.0", "react@>=16", "react@>=17.0.0", "react@18.1.0":
   "integrity" "sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.1.0.tgz"
   "version" "18.1.0"
