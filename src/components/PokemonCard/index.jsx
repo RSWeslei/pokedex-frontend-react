@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from 'react-native-elements';
-import { Image, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
+import FastImage from 'react-native-fast-image'
 
 import PokemonInfo from '../PokemonInfo';
 
@@ -10,40 +11,43 @@ import DotsCard from '../../assets/svg-icons/pattern.svg'
 import { globalStyles } from '../../styles/globalStyles';
 import { pokemonCardStyles } from '../../pages/PokemonViewer/styles';
 
-const getCardColor = (props) => {
-  return props.pokemon.types.length == 2
-    ? props.pokemon.types[1].name
-    : props.pokemon.types[0].name
-}
 
-const PokemonCard = (props) => {
-  return (
-    <Card containerStyle={pokemonCardStyles(getCardColor(props)).pokemonCard}>
-      <TouchableOpacity 
-        onPress={() => {
-          props.navigation.navigate('PokemonViewer', {
-            pokemonId: props.pokemon.id
-          })
-        }}
-        style={pokemonCardStyles().pokemonCardTouchable}
-      >
-        <DotsCard width={110} height={40} style={pokemonCardStyles().dotsBackground} />
-        <PokeballCard width={150} height={150} style={pokemonCardStyles().pokeballBackground} PokeballCard />
-        <View style={{ flexDirection: 'row' }}>
-          <PokemonInfo pokemon={props.pokemon} />
-          <View style={{ marginLeft: 'auto' }}>
-            {/* <SvgUri
-              style={pokemonCardStyles().pokemonImage}
-              width="150"
-              height="150"
-              uri={props.pokemon.images.svgs.front_default}
-            ></SvgUri> */}
-            <Image source={{ uri: props.pokemon.images.artwork }} style={globalStyles().pokemonImage} />
+// use pure component to prevent re-rendering
+export default class PokemonCard extends React.PureComponent {
+  render() {
+    function getCardColor (props) {
+      return props.pokemon.types.length == 2
+        ? props.pokemon.types[1].name
+        : props.pokemon.types[0].name
+    }
+
+    return (
+      <Card containerStyle={pokemonCardStyles(getCardColor(this.props)).pokemonCard}>
+        <TouchableOpacity 
+          onPress={() => {
+            this.props.navigation.navigate('PokemonViewer', {
+              pokemonId: this.props.pokemon.id
+            })
+          }}
+          style={pokemonCardStyles().pokemonCardTouchable}
+        >
+          <DotsCard width={110} height={40} style={pokemonCardStyles().dotsBackground} />
+          <PokeballCard width={150} height={150} style={pokemonCardStyles().pokeballBackground} PokeballCard />
+          <View style={{ flexDirection: 'row' }}>
+            <PokemonInfo pokemon={this.props.pokemon} />
+            <View style={{ marginLeft: 'auto' }}>
+              <FastImage 
+                source={{ 
+                  uri: this.props.pokemon.images.artwork,
+                  priority: FastImage.priority.normal 
+                }} 
+                style={globalStyles().pokemonImage} 
+              />
+            </View>
           </View>
-        </View>
-      </TouchableOpacity>
-    </Card>
-  );
-}
+        </TouchableOpacity>
+      </Card>
+    );
+  }
 
-export default PokemonCard;
+}
