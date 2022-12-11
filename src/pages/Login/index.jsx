@@ -7,10 +7,11 @@ import AnimatedLottieView from 'lottie-react-native';
 import pokemonAnimation from '../../assets/pokeball.json';
 import { Link } from '@react-navigation/native';
 import SignUp from '../SignUp';
+import { setGlobalToken } from '../../plugins/axios';
 
-const Login = ({ navigation }) => {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+const Login = ({ navigation, setUSerToken, getUserToken }) => {
+  const [username, setUsername] = React.useState('testegabriel');
+  const [password, setPassword] = React.useState('teste');
 
   function validateLogin() {
     console.log(username, password);
@@ -19,6 +20,7 @@ const Login = ({ navigation }) => {
       api.post('/login', { username: username, password: password })
       .then((response) => {
         console.log(response);
+        setGlobalToken(response.data.token);
         navigation.navigate('Home');
       }).catch((error) => {
         console.log(error);
