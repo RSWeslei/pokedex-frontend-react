@@ -1,14 +1,25 @@
 import { StyleSheet } from "react-native";
 
 export const Styles = StyleSheet.create({
-    pokemonAnimation: {
-        marginTop: 20,
-        marginBottom: 10,
-        height: 150
+    LayoutStyle: {
+        backgroundColor: '#FFF',
+        padding: 30,
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        // justifyContent: 'center',
     },
-    logoLogin: {
-        width: '90%',
-        height: '20%',
+    Title: {
+        color: 'red',
+        fontSize: 25,
+        textAlign: 'center',
+        marginTop: '50%',
+        marginBottom: '10%'
+    },
+    LinkRetorno: {
+        color: 'red',
+        fontSize: 20,
+        alignSelf: 'flex-start',
     },
     InputLogin: {
         height: '8%',
@@ -37,9 +48,4 @@ export const Styles = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center'
     },
-    TextLinkCadastro: {
-        color: 'red',
-        fontSize: 15,
-        marginTop: 50
-    }
 });
