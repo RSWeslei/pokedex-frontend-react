@@ -25,6 +25,7 @@ export default class PokemonCard extends React.PureComponent {
       <Card containerStyle={pokemonCardStyles(getCardColor(this.props)).pokemonCard}>
         <TouchableOpacity 
           onPress={() => {
+            this.props.navigation.pokemonId = this.props.pokemon.id
             this.props.navigation.navigate('PokemonViewer', {
               pokemonId: this.props.pokemon.id
             })

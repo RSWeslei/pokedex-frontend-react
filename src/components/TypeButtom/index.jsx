@@ -1,6 +1,7 @@
 
 import React from "react";
-import { Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
+import Text from '../../utils/TextSF';
 
 import typesSvgs from "../../assets/type-icons/typesSvgs";
 import { pokemonCardStyles } from '../../pages/PokemonViewer/styles';
@@ -8,7 +9,6 @@ import { pokemonCardStyles } from '../../pages/PokemonViewer/styles';
 export default TypeButtom = ({ type }) => {
   return (
     <TouchableOpacity
-      key={type.id}
       title={type.name}
       style={pokemonCardStyles(type.color).pokemonCardTypeButton}
       titleStyle={{ color: 'white' }}

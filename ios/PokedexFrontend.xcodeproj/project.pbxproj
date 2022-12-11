@@ -15,6 +15,15 @@
 		7699B88040F8A987B510C191 /* libPods-PokedexFrontend-PokedexFrontendTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-PokedexFrontend-PokedexFrontendTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		3B240B09CD6F4EC4848B13D1 /* Gobold_Hollow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82CF677AB71F4A61A814A60B /* Gobold_Hollow.ttf */; };
+		76519D8D52DD4B81A3CAF948 /* SFPRODISPLAYBLACKITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 66B57E9B36164A1FB4E0BBDD /* SFPRODISPLAYBLACKITALIC.OTF */; };
+		0C0AE2C254DC458386749D56 /* SFPRODISPLAYBOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 72399911D2DC4C6486B36C68 /* SFPRODISPLAYBOLD.OTF */; };
+		3721E29006554D4694D033ED /* SFPRODISPLAYHEAVYITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 6AF545AA68B04439B693EE16 /* SFPRODISPLAYHEAVYITALIC.OTF */; };
+		DBF40464B5994E9A92B2C414 /* SFPRODISPLAYLIGHTITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = B67E3278E4DA4E52B762099F /* SFPRODISPLAYLIGHTITALIC.OTF */; };
+		7BAC4A408C314B0BBD266B2D /* SFPRODISPLAYMEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 9277377932C94893A4FEF2B8 /* SFPRODISPLAYMEDIUM.OTF */; };
+		925ADABF095B4223B24CB7D8 /* SFPRODISPLAYREGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = C8BF3F67DD4143D184757843 /* SFPRODISPLAYREGULAR.OTF */; };
+		0A7C4A90BE7846149ADDAA29 /* SFPRODISPLAYSEMIBOLDITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 9D0D74EA83A049E2B2484A62 /* SFPRODISPLAYSEMIBOLDITALIC.OTF */; };
+		36ECED327D894FDC983964C7 /* SFPRODISPLAYTHINITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = B0D9130521604D11A39D1C51 /* SFPRODISPLAYTHINITALIC.OTF */; };
+		847F17D704F84DDBBBE0812D /* SFPRODISPLAYULTRALIGHTITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = B4FFEDE3F91D4692B3E9420B /* SFPRODISPLAYULTRALIGHTITALIC.OTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +55,15 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-PokedexFrontend-PokedexFrontendTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokedexFrontend-PokedexFrontendTests.release.xcconfig"; path = "Target Support Files/Pods-PokedexFrontend-PokedexFrontendTests/Pods-PokedexFrontend-PokedexFrontendTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		82CF677AB71F4A61A814A60B /* Gobold_Hollow.ttf */ = {isa = PBXFileReference; name = "Gobold_Hollow.ttf"; path = "../assets/fonts/Gobold_Hollow.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		66B57E9B36164A1FB4E0BBDD /* SFPRODISPLAYBLACKITALIC.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYBLACKITALIC.OTF"; path = "../assets/fonts/SFPRODISPLAYBLACKITALIC.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		72399911D2DC4C6486B36C68 /* SFPRODISPLAYBOLD.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYBOLD.OTF"; path = "../assets/fonts/SFPRODISPLAYBOLD.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6AF545AA68B04439B693EE16 /* SFPRODISPLAYHEAVYITALIC.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYHEAVYITALIC.OTF"; path = "../assets/fonts/SFPRODISPLAYHEAVYITALIC.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B67E3278E4DA4E52B762099F /* SFPRODISPLAYLIGHTITALIC.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYLIGHTITALIC.OTF"; path = "../assets/fonts/SFPRODISPLAYLIGHTITALIC.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9277377932C94893A4FEF2B8 /* SFPRODISPLAYMEDIUM.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYMEDIUM.OTF"; path = "../assets/fonts/SFPRODISPLAYMEDIUM.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C8BF3F67DD4143D184757843 /* SFPRODISPLAYREGULAR.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYREGULAR.OTF"; path = "../assets/fonts/SFPRODISPLAYREGULAR.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9D0D74EA83A049E2B2484A62 /* SFPRODISPLAYSEMIBOLDITALIC.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYSEMIBOLDITALIC.OTF"; path = "../assets/fonts/SFPRODISPLAYSEMIBOLDITALIC.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B0D9130521604D11A39D1C51 /* SFPRODISPLAYTHINITALIC.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYTHINITALIC.OTF"; path = "../assets/fonts/SFPRODISPLAYTHINITALIC.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B4FFEDE3F91D4692B3E9420B /* SFPRODISPLAYULTRALIGHTITALIC.OTF */ = {isa = PBXFileReference; name = "SFPRODISPLAYULTRALIGHTITALIC.OTF"; path = "../assets/fonts/SFPRODISPLAYULTRALIGHTITALIC.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +173,15 @@
 			isa = "PBXGroup";
 			children = (
 				82CF677AB71F4A61A814A60B /* Gobold_Hollow.ttf */,
+				66B57E9B36164A1FB4E0BBDD /* SFPRODISPLAYBLACKITALIC.OTF */,
+				72399911D2DC4C6486B36C68 /* SFPRODISPLAYBOLD.OTF */,
+				6AF545AA68B04439B693EE16 /* SFPRODISPLAYHEAVYITALIC.OTF */,
+				B67E3278E4DA4E52B762099F /* SFPRODISPLAYLIGHTITALIC.OTF */,
+				9277377932C94893A4FEF2B8 /* SFPRODISPLAYMEDIUM.OTF */,
+				C8BF3F67DD4143D184757843 /* SFPRODISPLAYREGULAR.OTF */,
+				9D0D74EA83A049E2B2484A62 /* SFPRODISPLAYSEMIBOLDITALIC.OTF */,
+				B0D9130521604D11A39D1C51 /* SFPRODISPLAYTHINITALIC.OTF */,
+				B4FFEDE3F91D4692B3E9420B /* SFPRODISPLAYULTRALIGHTITALIC.OTF */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -257,6 +284,15 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3B240B09CD6F4EC4848B13D1 /* Gobold_Hollow.ttf in Resources */,
+				76519D8D52DD4B81A3CAF948 /* SFPRODISPLAYBLACKITALIC.OTF in Resources */,
+				0C0AE2C254DC458386749D56 /* SFPRODISPLAYBOLD.OTF in Resources */,
+				3721E29006554D4694D033ED /* SFPRODISPLAYHEAVYITALIC.OTF in Resources */,
+				DBF40464B5994E9A92B2C414 /* SFPRODISPLAYLIGHTITALIC.OTF in Resources */,
+				7BAC4A408C314B0BBD266B2D /* SFPRODISPLAYMEDIUM.OTF in Resources */,
+				925ADABF095B4223B24CB7D8 /* SFPRODISPLAYREGULAR.OTF in Resources */,
+				0A7C4A90BE7846149ADDAA29 /* SFPRODISPLAYSEMIBOLDITALIC.OTF in Resources */,
+				36ECED327D894FDC983964C7 /* SFPRODISPLAYTHINITALIC.OTF in Resources */,
+				847F17D704F84DDBBBE0812D /* SFPRODISPLAYULTRALIGHTITALIC.OTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

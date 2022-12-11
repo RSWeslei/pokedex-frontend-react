@@ -1,10 +1,15 @@
-import { React, useState, useEffect } from 'react'
-import { Text, View } from 'react-native';
+import { React } from 'react'
+import { View, ActivityIndicator, Image } from 'react-native';
+
+import LoadingStyles from './styles';
 
 const Loading = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
-      <Text>Loading...</Text>
+    <View style={LoadingStyles.mainContainer}>
+      <Image source={require('../../assets/logo.png')} style={LoadingStyles.logo}/>
+      <View style={{flexDirection: 'row'}}>
+        <ActivityIndicator size="large" color="red"/>
+      </View>
     </View>
   )
 }
