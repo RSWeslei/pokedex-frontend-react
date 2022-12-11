@@ -1,5 +1,6 @@
 import React from 'react';
-import { TextInput,Text, View, Image, Pressable, KeyboardAvoidingView } from 'react-native';
+import { TextInput, View, Image, Pressable, KeyboardAvoidingView } from 'react-native';
+import Text from '../../utils/TextSF';
 import { Styles } from "./styles";
 
 import api from '../../plugins/axios';

@@ -45,13 +45,14 @@ export const pokemonView = (props) => StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '80%',
-        marginLeft: '10%',
-        marginTop: '8%',
+        alignSelf: 'center',
+        marginTop: '7%',
     },
     menuTitle: {
         color: 'white',
+        textAlign: 'center',
         fontSize: props ? 16 : 15,
-        fontWeight: props ? 'bold' : 'normal',
+        fontFamily: props ? 'SF-Pro-Display-Bold' : 'SF-Pro-Display-Regular',
     },
     pokemonView: {
         alignItems: 'center',
@@ -74,7 +75,7 @@ export const pokemonView = (props) => StyleSheet.create({
     dataContainerSubtitle: {
         color: cardColors[props],
         alignSelf: 'flex-start',
-        fontWeight: 'bold',
+        fontFamily: 'SF-Pro-Display-Bold',
         fontSize: 20,
         marginBottom: 12,
     },
@@ -85,7 +86,6 @@ export const pokemonView = (props) => StyleSheet.create({
     },
     description: {
         fontSize: 15,
-        fontWeight: 'normal',
         marginBottom: 15,
         marginStart: 10,
     },
@@ -95,7 +95,7 @@ export const pokemonView = (props) => StyleSheet.create({
     },
     pokemonDataTitle: {
         flexDirection: 'row',
-        fontWeight: 'bold',
+        fontFamily: 'SF-Pro-Display-Bold',
         marginBottom: 20,
         fontSize: 16,
         width: '25%',
@@ -103,7 +103,6 @@ export const pokemonView = (props) => StyleSheet.create({
     pokemonDataText: {
         flex: 1,
         fontSize: 17,
-        fontWeight: 'normal',
         alignSelf: 'flex-start',
     },
     pokemonDataTitleParent: {
@@ -122,7 +121,7 @@ export const pokemonCardStyles = (props) => StyleSheet.create({
     },
     pokemonCardId: {
         fontSize: 16,
-        fontWeight: 'bold',
+        fontFamily: 'SF-Pro-Display-Bold',
     },
     pokemonImage: {
         width: 170,
@@ -143,7 +142,7 @@ export const pokemonCardStyles = (props) => StyleSheet.create({
         fontSize: 15,
         marginLeft: 5,
         marginEnd: 5,
-        fontWeight: 'bold'
+        fontFamily: 'SF-Pro-Display-Bold',
     },
     pokemonCardTypeIcon: {
         width: 20,
@@ -182,7 +181,7 @@ export const evolutionStyles = (props, value, maxValue) => StyleSheet.create({
     },
     title: {
         fontSize: 20,
-        fontWeight: 'bold',
+        fontFamily: 'SF-Pro-Display-Bold',
         color: cardColors[props],
         alignSelf: 'flex-start',
         marginTop: 10,
@@ -201,7 +200,7 @@ export const evolutionStyles = (props, value, maxValue) => StyleSheet.create({
     },
     pokemonName: {
         fontSize: 20,
-        fontWeight: 'bold'
+        fontFamily: 'SF-Pro-Display-Bold',
     },
     pokeball: {
         position: 'absolute'
@@ -213,12 +212,12 @@ export const evolutionStyles = (props, value, maxValue) => StyleSheet.create({
         fontSize: 15,
         flexDirection: 'row',
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontFamily: 'SF-Pro-Display-Bold',
     },
     noEvolution: {
         fontSize: 15,
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontFamily: 'SF-Pro-Display-Bold',
     }
 });
 
@@ -236,8 +235,6 @@ export const statusStyles = (props, value, maxValue) => StyleSheet.create({
         marginTop: 8,
     },
     defensesText: {
-        fontWeight: 'normal',
-        color: 'grey',
         fontSize: 17,
         marginBottom: 8
     },
@@ -255,7 +252,7 @@ export const statusStyles = (props, value, maxValue) => StyleSheet.create({
     },
     basicStatusTitle: {
         fontSize: 16,
-        fontWeight: 'bold',
+        fontFamily: 'SF-Pro-Display-Bold',
         alignSelf: 'flex-start',
         marginEnd: 10,
         width: '30%',

@@ -21,7 +21,7 @@ export const globalStyles = (props) => StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
     color: Colors.black,
-    fontWeight: 'bold'
+    fontFamily: 'SF-Pro-Display-Bold',
   },
   titleLogo: {
     width: 150,

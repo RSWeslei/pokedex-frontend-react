@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from 'react-native-elements';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import Text from '../../utils/TextSF';
 import { pokemonCardStyles } from '../../pages/PokemonViewer/styles';
 
 import TypeButtom from "../TypeButtom";
@@ -15,7 +16,7 @@ const PokemonInfo = (props) => {
       <Card.Title style={pokemonCardStyles().pokemonCardName}>{props.pokemon.name}</Card.Title>
       <View style={{ flexDirection: "row", alignContent: 'space-between' }}>
         {props.pokemon.types.map(type => (
-          <TypeButtom type={type} />
+          <TypeButtom type={type} key={type.id} />
         ))}
       </View>
     </View>
