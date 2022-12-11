@@ -3,7 +3,6 @@ import fetch from 'node-fetch';
 const apiFetch = async (url, options) => {
     options.headers = {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
     }
     return await fetch(`http://54.232.172.233${url}`, options)
 };
