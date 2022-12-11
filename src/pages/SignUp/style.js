@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const Styles = StyleSheet.create({
-    LayoutStyle: {
+    layoutStyle: {
         backgroundColor: '#FFF',
         padding: 30,
         height: '100%',
@@ -9,19 +9,19 @@ export const Styles = StyleSheet.create({
         alignItems: 'center',
         // justifyContent: 'center',
     },
-    Title: {
+    title: {
         color: 'red',
         fontSize: 25,
         textAlign: 'center',
         marginTop: '50%',
         marginBottom: '10%'
     },
-    LinkRetorno: {
+    returnLink: {
         color: 'red',
         fontSize: 20,
         alignSelf: 'flex-start',
     },
-    InputLogin: {
+    inputLogin: {
         height: '8%',
         width: '85%',
         marginTop: 5,
@@ -31,7 +31,7 @@ export const Styles = StyleSheet.create({
         borderRadius: 10,
         marginBottom: 10,
     },
-    BotaoPadrao: {
+    defaultButton: {
         width: '85%',
         marginTop: 20,
         borderRadius: 10,
@@ -42,7 +42,7 @@ export const Styles = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
     },
-    TextoBotao: {
+    buttonText: {
         fontSize: 15,
         color: 'white',
         textAlign: 'center',
