@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Pressable, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native';
+import api from '../../plugins/axios';
 import { Styles } from './style';
 
 const SignUp = ({ navigation }) => {
@@ -12,14 +13,17 @@ const SignUp = ({ navigation }) => {
 
     const validateSignUp = () => {
         if(name !== '' && email !== '' && password !== '') {
-            
+            api.post('/signup', { username: name, email: email, password: password })
+            .then((response) => {
+                console.log(response);
+            }).catch((error) => {
+                console.log(error);
+            })
             navigation.navigate('Login');
         }
     }
 
-
     return (
-        
         <KeyboardAvoidingView style={Styles.LayoutStyle}>
             <Link to={{ screen: 'Login' }} style={Styles.LinkRetorno}>{'< Login'}</Link>
             <Text style={Styles.Title}>Cadastro Pokedéx</Text>
