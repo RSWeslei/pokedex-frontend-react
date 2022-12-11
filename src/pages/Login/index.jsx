@@ -2,10 +2,11 @@ import React from 'react';
 import { TextInput, View, Image, Pressable, KeyboardAvoidingView } from 'react-native';
 import Text from '../../utils/TextSF';
 import { Styles } from "./styles";
-
 import api from '../../plugins/axios';
 import AnimatedLottieView from 'lottie-react-native';
 import pokemonAnimation from '../../assets/pokeball.json';
+import { Link } from '@react-navigation/native';
+import SignUp from '../SignUp';
 
 const Login = ({ navigation }) => {
 
@@ -23,6 +24,7 @@ const Login = ({ navigation }) => {
         <Pressable onPress={validateLogin} style={Styles.BotaoPadrao}>
           <Text style={Styles.TextoBotao}>Entrar</Text>
         </Pressable>
+        <Link to={{ screen: 'SignUp' }} style={Styles.TextLinkCadastro}>Não possui uma conta? Cadastre-se!</Link>
       </View>
     </KeyboardAvoidingView>
   );
