@@ -1,30 +1,50 @@
 import React from 'react';
 import { TextInput, View, Image, Pressable, KeyboardAvoidingView } from 'react-native';
+import { Link } from '@react-navigation/native';
+
+import apiFetch from '../../plugins/fetch'
+
 import Text from '../../utils/TextSF';
 import { Styles } from "./styles";
-import api from '../../plugins/axios';
+
 import AnimatedLottieView from 'lottie-react-native';
 import pokemonAnimation from '../../assets/pokeball.json';
-import { Link } from '@react-navigation/native';
 import SignUp from '../SignUp';
 import { setGlobalToken } from '../../plugins/axios';
 
 const Login = ({ navigation, setUSerToken, getUserToken }) => {
-  const [username, setUsername] = React.useState('teste');
-  const [password, setPassword] = React.useState('teste');
+  const [usernameEmail, setUsernameEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
-  function validateLogin() {
-    console.log(username, password);
-    if(username !== '' || password !== '') {
-      console.log(username, password);
-      api.post('/login', { username: username, password: password })
-      .then((response) => {
-        console.log(response);
-        setGlobalToken(response.data.token);
-        navigation.navigate('Home');
-      }).catch((error) => {
-        console.log(error);
-      });
+  const validateEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return re.test(String(email).toLowerCase())
+  };
+
+  async function validateLogin() {
+    try {
+      if (!usernameEmail || !password) {
+        return alert('Please fill all fields');
+      }
+      let isEmail = validateEmail(usernameEmail);
+
+      let data = {}
+      isEmail ? data = { email: usernameEmail, password: password } : data = { username: usernameEmail, password: password }
+      const options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+      }
+      const response = await apiFetch('/login', options);
+      const json = await response.json();
+      if (json.type === 'error' && response.status != 200) {
+        return alert(json.message);
+      }
+      if (json.type === 'success' && response.status == 200) {
+        setGlobalToken(json.data.token);
+        return navigation.navigate('Home');
+      }
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -33,12 +53,17 @@ const Login = ({ navigation, setUSerToken, getUserToken }) => {
       <View style={{ backgroundColor: 'white', height: '100%', width: '100%', alignItems: 'center' }}>
         <AnimatedLottieView autoPlay source={pokemonAnimation} style={Styles.pokemonAnimation} loop />
         <Image source={require('../../assets/logo.png')} style={Styles.logoLogin} />
-        <TextInput style={Styles.InputLogin} onChangeText={text => setUsername(text)} placeholder="Usuário" clearTextOnFocus />
-        <TextInput style={Styles.InputLogin} onChangeText={text => setPassword(text)} placeholder="Senha" clearTextOnFocus />
-        <Pressable onPress={validateLogin} style={Styles.BotaoPadrao}>
-          <Text style={Styles.TextoBotao}>Entrar</Text>
+        <TextInput style={Styles.inputLogin} onChangeText={text => setUsernameEmail(text)} placeholder="Username or email" clearTextOnFocus />
+        <TextInput style={Styles.inputLogin} onChangeText={text => setPassword(text)} placeholder="Password" clearTextOnFocus secureTextEntry={true} />
+        <Pressable onPress={validateLogin} style={Styles.defaultButton}>
+          <Text style={Styles.buttonText}>Login</Text>
         </Pressable>
-        <Link to={{ screen: 'SignUp' }} style={Styles.TextLinkCadastro}>Não possui uma conta? Cadastre-se!</Link>
+        <Pressable onPress={() => {
+          navigation.navigate('Home')
+        }} style={Styles.defaultButton}>
+          <Text style={Styles.buttonText}>Entrar igual</Text>
+        </Pressable>
+        <Link to={{ screen: 'SignUp' }} style={Styles.signupLinkText}>Don't have an account? Sign up</Link>
       </View>
     </KeyboardAvoidingView>
   );

@@ -10,7 +10,7 @@ export const Styles = StyleSheet.create({
         width: '90%',
         height: '20%',
     },
-    InputLogin: {
+    inputLogin: {
         height: '8%',
         width: '85%',
         marginTop: 5,
@@ -20,7 +20,7 @@ export const Styles = StyleSheet.create({
         borderRadius: 10,
         marginBottom: 10,
     },
-    BotaoPadrao: {
+    defaultButton: {
         width: '85%',
         marginTop: 20,
         borderRadius: 10,
@@ -31,15 +31,15 @@ export const Styles = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
     },
-    TextoBotao: {
+    buttonText: {
         fontSize: 15,
         color: 'white',
         textAlign: 'center',
         justifyContent: 'center'
     },
-    TextLinkCadastro: {
+    signupLinkText: {
         color: 'red',
         fontSize: 15,
-        marginTop: 50
+        marginTop: 35
     }
 });
