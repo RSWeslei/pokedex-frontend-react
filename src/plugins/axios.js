@@ -1,28 +1,16 @@
 import axios from 'axios';
-import { AsyncStorage } from 'react-native';
-
-async function setGlobalToken(token) {
-    console.log(token);
-    await AsyncStorage.setItem('token', token);
-};
-
-async function getGlobalToken() {
-    const token = await AsyncStorage.getItem('token');
-    console.log('token encontrado:', token);
-    return token;
-}
+import storage from './storage';
 
 const api = axios.create({
     baseURL: 'http://54.232.172.233',
 });
 
-api.interceptors.request.use(async config => {
-    const token = await getGlobalToken();
+api.interceptors.request.use(async response => {
+    const token = await storage.getGlobalToken();
     if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+        response.headers.Authorization = `Bearer ${token}`;
     }
-    return config;
+    return response;
 });
 
 export default api;
-export { setGlobalToken, getGlobalToken };

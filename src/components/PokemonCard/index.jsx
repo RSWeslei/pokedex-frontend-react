@@ -35,7 +35,7 @@ export default class PokemonCard extends React.PureComponent {
           <DotsCard width={110} height={40} style={pokemonCardStyles().dotsBackground} />
           <PokeballCard width={150} height={150} style={pokemonCardStyles().pokeballBackground} PokeballCard />
           <View style={{ flexDirection: 'row' }}>
-            <PokemonInfo pokemon={this.props.pokemon} />
+            <PokemonInfo pokemon={this.props.pokemon} navigation={this.props.navigation}/>
             <View style={{ marginLeft: 'auto' }}>
               <FastImage 
                 source={{ 

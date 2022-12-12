@@ -8,7 +8,6 @@ import HomeScreen from "./src/pages/Home";
 import PokemonViewer from "./src/pages/PokemonViewer";
 import Favorites from './src/pages/Favorites';
 import SignUp from './src/pages/SignUp/index.jsx';
-import { setUserToken, getUserToken } from './src//plugins/axios';
 
 function App() {
   // useEffect(() => {
@@ -37,7 +36,6 @@ function App() {
     <NavigationContainer>
       <Drawer.Navigator screenOptions={{ headerShown: false }} initialRouteName="Login">
         <Drawer.Screen name="Pokemons" component={HomeStackNavigator} />
-        <Drawer.Screen name="Favoritos" component={Favorites} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
@@ -52,6 +50,7 @@ const HomeStackNavigator = () => {
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="PokemonViewer" component={PokemonViewer} />
+      <Stack.Screen name="Favorites" component={Favorites} />
     </Stack.Navigator>
   );
 }

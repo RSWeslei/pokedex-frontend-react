@@ -31,7 +31,7 @@ function HomeScreen ({ navigation }) {
 
   useEffect(() => {
     api.get("/pokemons").then(response => {
-      setPokemons(response.data);
+      setPokemons(response.data.data);
       setLoading(false);
     });
   }, []);

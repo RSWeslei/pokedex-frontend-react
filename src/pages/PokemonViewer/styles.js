@@ -119,6 +119,10 @@ export const pokemonCardStyles = (props) => StyleSheet.create({
         fontSize: 30,
         marginBottom: 5
     },
+    pokemonFavoriteIcon: {
+        marginStart: 5,
+        marginBottom: 2
+    },
     pokemonCardId: {
         fontSize: 16,
         fontFamily: 'SF-Pro-Display-Bold',

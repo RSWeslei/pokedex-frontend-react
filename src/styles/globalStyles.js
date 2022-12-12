@@ -12,7 +12,7 @@ export const globalStyles = (props) => StyleSheet.create({
   },
   titleIcons: {
     flexDirection: 'row',
-    marginLeft: 20,
+    marginLeft: 10,
     justifyContent: 'space-between',
     width: 100,
   },

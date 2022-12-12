@@ -8,7 +8,7 @@ import { Styles } from './style';
 
 const SignUp = ({ navigation }) => {
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
+    let [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const validateSignUp = async () => {
@@ -16,6 +16,7 @@ const SignUp = ({ navigation }) => {
             if (!username || !email || !password) {
                 return alert('Please fill all fields');
             }
+            email = email.toLowerCase();
             let data = { username: username, email: email, password: password }
             const options = {
                 method: 'POST',

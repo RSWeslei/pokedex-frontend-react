@@ -244,7 +244,7 @@ function PokemonViewer({ route, navigation }) {
 
   useEffect(() => {
     api.get(`/pokemons/${pokemonId}`).then(response => {
-      setPokemon(response.data);
+      setPokemon(response.data.data);
       setLoading(false);
     });
     // animation
@@ -290,7 +290,7 @@ function PokemonViewer({ route, navigation }) {
         <View style={pokemonView().pokemonView}>
           <CirclePokemon width={150} height={150} style={pokemonView().circlePokemonBackground} />
           <Image source={{ uri: pokemon.images.artwork }} style={pokemonView().pokemonImage} />
-          <PokemonInfo pokemon={pokemon}></PokemonInfo>
+          <PokemonInfo pokemon={pokemon} navigation={navigation}></PokemonInfo>
         </View>
       </Animated.View>
       <View style={pokemonView().menuContainer}>

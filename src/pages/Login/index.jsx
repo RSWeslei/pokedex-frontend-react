@@ -9,8 +9,7 @@ import { Styles } from "./styles";
 
 import AnimatedLottieView from 'lottie-react-native';
 import pokemonAnimation from '../../assets/pokeball.json';
-import SignUp from '../SignUp';
-import { setGlobalToken } from '../../plugins/axios';
+import storage from '../../plugins/storage';
 
 const Login = ({ navigation, setUSerToken, getUserToken }) => {
   const [usernameEmail, setUsernameEmail] = React.useState('');
@@ -27,7 +26,7 @@ const Login = ({ navigation, setUSerToken, getUserToken }) => {
         return alert('Please fill all fields');
       }
       let isEmail = validateEmail(usernameEmail);
-
+      
       let data = {}
       isEmail ? data = { email: usernameEmail, password: password } : data = { username: usernameEmail, password: password }
       const options = {
@@ -40,7 +39,7 @@ const Login = ({ navigation, setUSerToken, getUserToken }) => {
         return alert(json.message);
       }
       if (json.type === 'success' && response.status == 200) {
-        setGlobalToken(json.data.token);
+        storage.setGlobalToken(json.data.token);
         return navigation.navigate('Home');
       }
     } catch (error) {
@@ -61,7 +60,7 @@ const Login = ({ navigation, setUSerToken, getUserToken }) => {
         <Pressable onPress={() => {
           navigation.navigate('Home')
         }} style={Styles.defaultButton}>
-          <Text style={Styles.buttonText}>Entrar igual</Text>
+          <Text style={Styles.buttonText}>Enter as guest</Text>
         </Pressable>
         <Link to={{ screen: 'SignUp' }} style={Styles.signupLinkText}>Don't have an account? Sign up</Link>
       </View>

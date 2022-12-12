@@ -1,6 +1,7 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, View, TouchableOpacity } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
+import storage from '../../plugins/storage';
 
 import { globalStyles } from '../../styles/globalStyles';
 
@@ -11,16 +12,19 @@ const Title = ({navigation}) => {
         <Image source={require('../../assets/logo.png')} style={globalStyles().titleLogo} />
         <View style={globalStyles().titleIcons}>
           <Icon
-            name="apps-outline"
+            name="log-out-outline"
             type='ionicon'
+            onPress={() => {
+              storage.removeGlobalToken()
+              navigation.navigate('Login')
+            }}
           >
-            <Button></Button>
           </Icon>
           <Icon
-            name="swap-vertical-outline"
+            name="star"
             type='ionicon'
+            onPress={() => navigation.navigate('Favorites')}
           >
-            <Button></Button>
           </Icon>
           <Icon
             name="options-outline"
