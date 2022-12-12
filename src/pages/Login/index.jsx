@@ -10,7 +10,7 @@ import SignUp from '../SignUp';
 import { setGlobalToken } from '../../plugins/axios';
 
 const Login = ({ navigation, setUSerToken, getUserToken }) => {
-  const [username, setUsername] = React.useState('testegabriel');
+  const [username, setUsername] = React.useState('teste');
   const [password, setPassword] = React.useState('teste');
 
   function validateLogin() {
