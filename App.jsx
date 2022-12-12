@@ -8,6 +8,7 @@ import HomeScreen from "./src/pages/Home";
 import PokemonViewer from "./src/pages/PokemonViewer";
 import Favorites from './src/pages/Favorites';
 import SignUp from './src/pages/SignUp/index.jsx';
+import { setUserToken, getUserToken } from './src//plugins/axios';
 
 function App() {
   // useEffect(() => {

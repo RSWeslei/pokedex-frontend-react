@@ -9,8 +9,10 @@ import { Styles } from "./styles";
 
 import AnimatedLottieView from 'lottie-react-native';
 import pokemonAnimation from '../../assets/pokeball.json';
+import SignUp from '../SignUp';
+import { setGlobalToken } from '../../plugins/axios';
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation, setUSerToken, getUserToken }) => {
   const [usernameEmail, setUsernameEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -38,6 +40,7 @@ const Login = ({ navigation }) => {
         return alert(json.message);
       }
       if (json.type === 'success' && response.status == 200) {
+        setGlobalToken(json.data.token);
         return navigation.navigate('Home');
       }
     } catch (error) {
